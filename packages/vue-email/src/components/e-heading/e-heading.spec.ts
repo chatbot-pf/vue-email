@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EHeading } from './e-heading'
 
-describe('EHeading', () => {
+describe('eHeading', () => {
   it('renders h1 by default', () => {
     const wrapper = mount(EHeading)
     expect(wrapper.element.tagName.toLowerCase()).toBe('h1')

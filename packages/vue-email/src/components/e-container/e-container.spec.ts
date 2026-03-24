@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EContainer } from './e-container'
 
-describe('EContainer', () => {
+describe('eContainer', () => {
   it('renders a table element', () => {
     const wrapper = mount(EContainer)
     expect(wrapper.element.tagName.toLowerCase()).toBe('table')

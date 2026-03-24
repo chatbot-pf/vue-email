@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EHead } from './e-head'
 
-describe('EHead', () => {
+describe('eHead', () => {
   it('renders a head element', () => {
     const wrapper = mount(EHead)
     expect(wrapper.element.tagName.toLowerCase()).toBe('head')

@@ -1,3 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EHr > matches snapshot 1`] = `"<hr style="width: 100%; border-style: solid none none; border-color: #eaeaea none none; border-image: initial; border-top-width: 1px; border-right-width: initial; border-bottom-width: initial; border-left-width: initial;">"`;
+exports[`eHr > matches snapshot 1`] = `"<hr style="width: 100%; border-style: solid none none; border-color: #eaeaea none none; border-image: initial; border-top-width: 1px; border-right-width: initial; border-bottom-width: initial; border-left-width: initial;">"`;

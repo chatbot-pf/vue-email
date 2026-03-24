@@ -1,3 +1,6 @@
+const cssValueRegex = /^([\d.]+)(px|em|rem|%)$/
+const whitespaceSplitRegex = /\s+/
+
 type PaddingType = string | number | undefined
 
 interface PaddingProperties {
@@ -16,11 +19,13 @@ interface PaddingProperties {
  * - other/invalid: 0
  */
 export function convertToPx(value: PaddingType): number {
-  if (!value && value !== 0) return 0
+  if (!value && value !== 0)
+    return 0
 
-  if (typeof value === 'number') return value
+  if (typeof value === 'number')
+    return value
 
-  const matches = /^([\d.]+)(px|em|rem|%)$/.exec(value)
+  const matches = cssValueRegex.exec(value)
 
   if (matches && matches.length === 3) {
     const numValue = Number.parseFloat(matches[1])
@@ -58,7 +63,7 @@ function parsePaddingValue(value: PaddingType): {
   }
 
   if (typeof value === 'string' && value.trim().length > 0) {
-    const values = value.trim().split(/\s+/)
+    const values = value.trim().split(whitespaceSplitRegex)
 
     if (values.length === 1) {
       return {
@@ -117,16 +122,20 @@ export function parsePadding(properties: PaddingProperties): {
   paddingLeft: number | undefined
 } {
   // Pass 1: process shorthand
-  let { paddingTop, paddingRight, paddingBottom, paddingLeft } =
-    properties.padding != null
+  let { paddingTop, paddingRight, paddingBottom, paddingLeft }
+    = properties.padding != null
       ? parsePaddingValue(properties.padding)
       : { paddingTop: undefined as PaddingType, paddingRight: undefined as PaddingType, paddingBottom: undefined as PaddingType, paddingLeft: undefined as PaddingType }
 
   // Pass 2: explicit overrides always win
-  if (properties.paddingTop != null) paddingTop = properties.paddingTop
-  if (properties.paddingRight != null) paddingRight = properties.paddingRight
-  if (properties.paddingBottom != null) paddingBottom = properties.paddingBottom
-  if (properties.paddingLeft != null) paddingLeft = properties.paddingLeft
+  if (properties.paddingTop != null)
+    paddingTop = properties.paddingTop
+  if (properties.paddingRight != null)
+    paddingRight = properties.paddingRight
+  if (properties.paddingBottom != null)
+    paddingBottom = properties.paddingBottom
+  if (properties.paddingLeft != null)
+    paddingLeft = properties.paddingLeft
 
   return {
     paddingTop: paddingTop != null ? convertToPx(paddingTop) : undefined,
@@ -151,7 +160,8 @@ const maxFontWidth = 5
  * This is used for MSO/Outlook compatibility.
  */
 export function computeFontWidthAndSpaceCount(expectedWidth: number): readonly [number, number] {
-  if (expectedWidth === 0) return [0, 0] as const
+  if (expectedWidth === 0)
+    return [0, 0] as const
 
   let smallestSpaceCount = 0
 

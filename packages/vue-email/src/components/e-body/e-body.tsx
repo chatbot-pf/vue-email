@@ -34,7 +34,7 @@ export const EBody = defineComponent({
   name: 'EBody',
   inheritAttrs: false,
   render() {
-    const { style, ...attrs } = this.$attrs as { style?: CSSProperties; [key: string]: unknown }
+    const { style, ...attrs } = this.$attrs as { style?: CSSProperties, [key: string]: unknown }
 
     const bodyStyle: CSSProperties = {
       background: style?.background as string | undefined,

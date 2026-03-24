@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 
 const PREVIEW_MAX_LENGTH = 150
-const WHITE_SPACE_CODES = '\xa0\u200C\u200B\u200D\u200E\u200F\uFEFF'
+const WHITE_SPACE_CODES = '\xA0\u200C\u200B\u200D\u200E\u200F\uFEFF'
 
 function renderWhiteSpace(text: string) {
   if (text.length >= PREVIEW_MAX_LENGTH) {

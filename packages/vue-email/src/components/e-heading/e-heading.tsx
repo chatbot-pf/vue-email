@@ -1,13 +1,16 @@
-import { type CSSProperties, defineComponent } from 'vue'
+import type { CSSProperties } from 'vue'
+import { defineComponent } from 'vue'
+
+const kebabToCamelRegex = /-([a-z])/g
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
-type MarginCSSProperty =
-  | 'margin'
-  | 'marginLeft'
-  | 'marginRight'
-  | 'marginTop'
-  | 'marginBottom'
+type MarginCSSProperty
+  = | 'margin'
+    | 'marginLeft'
+    | 'marginRight'
+    | 'marginTop'
+    | 'marginBottom'
 
 type MarginStyles = Partial<Pick<CSSProperties, MarginCSSProperty>>
 
@@ -81,7 +84,7 @@ function parseStyleString(style: string | undefined): CSSProperties {
   for (const declaration of style.split(';')) {
     const [prop, ...rest] = declaration.split(':')
     if (prop && rest.length > 0) {
-      const camelProp = prop.trim().replace(/-([a-z])/g, (_, c: string) => c.toUpperCase())
+      const camelProp = prop.trim().replace(kebabToCamelRegex, (_, c: string) => c.toUpperCase())
       result[camelProp] = rest.join(':').trim()
     }
   }

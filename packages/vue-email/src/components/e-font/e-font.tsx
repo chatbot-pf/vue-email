@@ -1,24 +1,24 @@
 import { defineComponent } from 'vue'
 
-type FallbackFont =
-  | 'Arial'
-  | 'Helvetica'
-  | 'Verdana'
-  | 'Georgia'
-  | 'Times New Roman'
-  | 'serif'
-  | 'sans-serif'
-  | 'monospace'
-  | 'cursive'
-  | 'fantasy'
+type FallbackFont
+  = | 'Arial'
+    | 'Helvetica'
+    | 'Verdana'
+    | 'Georgia'
+    | 'Times New Roman'
+    | 'serif'
+    | 'sans-serif'
+    | 'monospace'
+    | 'cursive'
+    | 'fantasy'
 
-type FontFormat =
-  | 'woff'
-  | 'woff2'
-  | 'truetype'
-  | 'opentype'
-  | 'embedded-opentype'
-  | 'svg'
+type FontFormat
+  = | 'woff'
+    | 'woff2'
+    | 'truetype'
+    | 'opentype'
+    | 'embedded-opentype'
+    | 'svg'
 
 type FontWeight = number | string
 type FontStyle = 'normal' | 'italic' | 'oblique' | (string & {})

@@ -1,25 +1,14 @@
 {
   "name": "@mail-please/vue-email",
+  "type": "module",
   "version": "0.0.1",
   "description": "Vue port of react-email. High-quality, unstyled components for creating emails using Vue.",
-  "type": "module",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    }
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "tsdown",
-    "typecheck": "tsc --noEmit"
-  },
-  "peerDependencies": {
-    "vue": "^3.3.0"
+  "author": "Minsu Lee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbot-pf/vue-email.git",
+    "directory": "packages/vue-email"
   },
   "keywords": [
     "vue",
@@ -28,11 +17,33 @@
     "vue3",
     "typescript"
   ],
-  "author": "Minsu Lee",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chatbot-pf/vue-email.git",
-    "directory": "packages/vue-email"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@vue/server-renderer": "^3.5.30",
+    "html-to-text": "^9.0.5",
+    "marked": "^17.0.5",
+    "prettier": "^3.8.1",
+    "prismjs": "^1.30.0"
+  },
+  "devDependencies": {
+    "@types/html-to-text": "^9.0.4",
+    "@types/prismjs": "^1.26.6"
   }
 }

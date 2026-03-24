@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import EColumn from './e-column'
 
-describe('EColumn', () => {
+describe('eColumn', () => {
   it('renders a td element', () => {
     const wrapper = mount(EColumn, {
       slots: { default: 'Content' },
@@ -37,7 +37,7 @@ describe('EColumn', () => {
   it('forwards additional html attributes', () => {
     const wrapper = mount(EColumn, {
       attrs: {
-        colspan: '2',
+        'colspan': '2',
         'data-custom': 'value',
       },
       slots: { default: 'Content' },

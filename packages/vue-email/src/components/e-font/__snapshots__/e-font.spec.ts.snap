@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EFont > matches snapshot 1`] = `
+exports[`eFont > matches snapshot 1`] = `
 "<style>
   @font-face {
     font-family: 'Roboto';

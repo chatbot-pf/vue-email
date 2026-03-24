@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EFont } from './e-font'
 
-describe('EFont', () => {
+describe('eFont', () => {
   it('renders a style element', () => {
     const wrapper = mount(EFont, {
       props: {
@@ -30,7 +30,7 @@ describe('EFont', () => {
         fallbackFontFamily: 'Arial',
       },
     })
-    expect(wrapper.element.innerHTML).toContain("font-family: 'Roboto'")
+    expect(wrapper.element.innerHTML).toContain('font-family: \'Roboto\'')
   })
 
   it('includes mso-font-alt for Outlook compatibility', () => {
@@ -40,7 +40,7 @@ describe('EFont', () => {
         fallbackFontFamily: 'Arial',
       },
     })
-    expect(wrapper.element.innerHTML).toContain("mso-font-alt: 'Arial'")
+    expect(wrapper.element.innerHTML).toContain('mso-font-alt: \'Arial\'')
   })
 
   it('uses first item of fallbackFontFamily array for mso-font-alt', () => {
@@ -50,7 +50,7 @@ describe('EFont', () => {
         fallbackFontFamily: ['Arial', 'sans-serif'],
       },
     })
-    expect(wrapper.element.innerHTML).toContain("mso-font-alt: 'Arial'")
+    expect(wrapper.element.innerHTML).toContain('mso-font-alt: \'Arial\'')
   })
 
   it('includes font-style with default "normal"', () => {
@@ -106,7 +106,7 @@ describe('EFont', () => {
         },
       },
     })
-    expect(wrapper.element.innerHTML).toContain("src: url(https://fonts.gstatic.com/roboto.woff2) format('woff2')")
+    expect(wrapper.element.innerHTML).toContain('src: url(https://fonts.gstatic.com/roboto.woff2) format(\'woff2\')')
   })
 
   it('does not include src when webFont is not provided', () => {
@@ -126,7 +126,7 @@ describe('EFont', () => {
         fallbackFontFamily: 'Arial',
       },
     })
-    expect(wrapper.element.innerHTML).toContain("font-family: 'Roboto', Arial")
+    expect(wrapper.element.innerHTML).toContain('font-family: \'Roboto\', Arial')
   })
 
   it('includes array of fallback fonts in wildcard rule', () => {
@@ -136,7 +136,7 @@ describe('EFont', () => {
         fallbackFontFamily: ['Arial', 'sans-serif'],
       },
     })
-    expect(wrapper.element.innerHTML).toContain("font-family: 'Roboto', Arial, sans-serif")
+    expect(wrapper.element.innerHTML).toContain('font-family: \'Roboto\', Arial, sans-serif')
   })
 
   it('matches snapshot', () => {

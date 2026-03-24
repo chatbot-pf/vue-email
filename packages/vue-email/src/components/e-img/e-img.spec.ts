@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import EImg from './e-img'
 
-describe('EImg', () => {
+describe('eImg', () => {
   it('renders an img element', () => {
     const wrapper = mount(EImg, {
       props: { src: 'https://example.com/image.png', alt: 'Test image' },
@@ -60,7 +60,7 @@ describe('EImg', () => {
       },
       attrs: {
         'data-testid': 'my-img',
-        loading: 'lazy',
+        'loading': 'lazy',
       },
     })
     const img = wrapper.find('img')

@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EHead > matches snapshot 1`] = `
+exports[`eHead > matches snapshot 1`] = `
 "<head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="x-apple-disable-message-reformatting">

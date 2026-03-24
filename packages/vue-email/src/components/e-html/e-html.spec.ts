@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EHtml } from './e-html'
 
-describe('EHtml', () => {
+describe('eHtml', () => {
   it('renders an html element', () => {
     const wrapper = mount(EHtml)
     expect(wrapper.element.tagName.toLowerCase()).toBe('html')

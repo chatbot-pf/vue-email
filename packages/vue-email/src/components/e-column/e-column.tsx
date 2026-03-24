@@ -1,4 +1,5 @@
-import { type CSSProperties, defineComponent } from 'vue'
+import type { CSSProperties } from 'vue'
+import { defineComponent } from 'vue'
 
 export interface EColumnProps {
   style?: string | CSSProperties

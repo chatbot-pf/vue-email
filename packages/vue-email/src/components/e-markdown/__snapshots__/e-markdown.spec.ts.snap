@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`eMarkdown > matches snapshot 1`] = `
+"<div data-id="react-email-markdown">
+  <h1 style="font-weight:500;padding-top:20px;font-size:2.5rem">Hello</h1>
+  <p>This is <strong style="font-weight:bold">bold</strong> and <em style="font-style:italic">italic</em> text.</p>
+  <p><a href="https://example.com" target="_blank" style="color:#007bff;text-decoration:underline;background-color:transparent">Link</a></p>
+</div>"
+`;

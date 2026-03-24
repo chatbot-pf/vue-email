@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EPreview } from './e-preview'
 
-describe('EPreview', () => {
+describe('ePreview', () => {
   it('renders a div element', () => {
     const wrapper = mount(EPreview, {
       slots: { default: 'Hello' },

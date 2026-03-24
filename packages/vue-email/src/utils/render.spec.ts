@@ -80,4 +80,35 @@ describe('render', () => {
     expect(typeof html).toBe('string')
     expect(html.startsWith('<!DOCTYPE')).toBe(true)
   })
+
+  it('applies tailwind inlining when tailwind option is provided', async () => {
+    const TailwindEmail = defineComponent({
+      render() {
+        return h('html', [
+          h('head'),
+          h('body', [
+            h('p', { class: 'text-white' }, 'Hello'),
+          ]),
+        ])
+      },
+    })
+    const html = await render(h(TailwindEmail), { tailwind: {} })
+    expect(html).toContain('style=')
+    expect(html).not.toContain('class="text-white"')
+  })
+
+  it('tailwind option accepts a config object', async () => {
+    const TailwindEmail = defineComponent({
+      render() {
+        return h('html', [
+          h('head'),
+          h('body', [
+            h('div', { class: 'bg-red-500' }, 'content'),
+          ]),
+        ])
+      },
+    })
+    const html = await render(h(TailwindEmail), { tailwind: { config: {} } })
+    expect(html).toContain('style=')
+  })
 })

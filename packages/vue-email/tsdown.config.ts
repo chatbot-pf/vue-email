@@ -6,6 +6,6 @@ export default defineConfig({
   dts: true,
   clean: true,
   deps: {
-    neverBundle: ['vue', '@vue/server-renderer', 'html-to-text', 'prettier', 'prismjs', 'marked'],
+    neverBundle: ['vue', '@vue/server-renderer', 'html-to-text', 'prettier', 'prismjs', 'marked', 'tailwindcss', 'css-tree'],
   },
 })

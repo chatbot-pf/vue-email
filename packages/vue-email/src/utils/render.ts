@@ -1,12 +1,17 @@
 import type { HtmlToTextOptions } from 'html-to-text'
 import type { VNode } from 'vue'
+import type { TailwindConfig } from '../tailwind/presets'
 import { renderToString } from '@vue/server-renderer'
 import { createSSRApp } from 'vue'
+import { inlineTailwind } from '../tailwind/inline-tailwind'
 import { pretty } from './pretty'
 import { toPlainText } from './to-plain-text'
 
 export type RenderOptions = {
   pretty?: boolean
+  tailwind?: {
+    config?: TailwindConfig
+  }
 } & (
   | { plainText?: false }
   | {
@@ -44,7 +49,11 @@ export async function render(
     return toPlainText(html, 'htmlToTextOptions' in options ? options.htmlToTextOptions : undefined)
   }
 
-  const document = `${DOCTYPE}${html.replace(doctypeRegex, '')}`
+  let document = `${DOCTYPE}${html.replace(doctypeRegex, '')}`
+
+  if (options?.tailwind) {
+    document = await inlineTailwind(document, options.tailwind.config ?? {})
+  }
 
   if (options?.pretty) {
     return pretty(document)

@@ -1,0 +1,91 @@
+packages/vue-email/src/tailwind/css/get-custom-properties.ts
+  76995cedd37b4ced 3-50
+packages/vue-email/src/tailwind/compatibility/get-style-property.ts
+  76995cedd37b4ced 1-15
+packages/vue-email/src/tailwind/css/index.ts
+  76995cedd37b4ced 1-13
+packages/vue-email/src/tailwind/css/is-rule-inlinable.spec.ts
+  76995cedd37b4ced 3-36
+packages/vue-email/src/tailwind/css/resolve-all-css-variables.spec.ts
+  76995cedd37b4ced 1-218
+packages/vue-email/src/tailwind/css/split-mixed-rule.ts
+  76995cedd37b4ced 3-70
+packages/vue-email/src/tailwind/compatibility/from-dash-case-to-camel-case.spec.ts
+  76995cedd37b4ced 1-28
+packages/vue-email/src/tailwind/compatibility/unescape-class.ts
+  76995cedd37b4ced 1-5
+packages/vue-email/src/tailwind/css/sanitize-declarations.ts
+  76995cedd37b4ced 2,4-6,8-420
+packages/vue-email/src/tailwind/css/is-part-inlinable.ts
+  76995cedd37b4ced 3-16
+packages/vue-email/src/tailwind/compatibility/from-dash-case-to-camel-case.ts
+  76995cedd37b4ced 1-2,4-5
+packages/vue-email/src/tailwind/css/is-rule-inlinable.ts
+  76995cedd37b4ced 3-16
+packages/vue-email/src/tailwind/css/sanitize-non-inlinable-rules.ts
+  76995cedd37b4ced 3-36
+packages/vue-email/src/tailwind/css/sanitize-declarations.spec.ts
+  76995cedd37b4ced 1,3-111,113-151,153-214,216-398
+packages/vue-email/src/tailwind/compatibility/index.ts
+  76995cedd37b4ced 1-5
+packages/vue-email/src/tailwind/compatibility/get-style-property.spec.ts
+  76995cedd37b4ced 1-28
+packages/vue-email/src/tailwind/css/is-part-inlinable.spec.ts
+  76995cedd37b4ced 3-30
+packages/vue-email/src/tailwind/css/resolve-calc-expressions.spec.ts
+  76995cedd37b4ced 1-37
+packages/vue-email/src/tailwind/css/make-inline-styles-for.spec.ts
+  76995cedd37b4ced 3-46
+packages/vue-email/src/tailwind/css/make-inline-styles-for.ts
+  76995cedd37b4ced 2,5-72
+packages/vue-email/src/tailwind/compatibility/escape-class-name.spec.ts
+  76995cedd37b4ced 1-18
+packages/vue-email/src/tailwind/css/sanitize-non-inlinable-rules.spec.ts
+  76995cedd37b4ced 1-42
+packages/vue-email/src/tailwind/compatibility/escape-class-name.ts
+  76995cedd37b4ced 1-21
+packages/vue-email/src/tailwind/css/resolve-all-css-variables.ts
+  76995cedd37b4ced 2,4,6,8-200
+packages/vue-email/src/tailwind/css/split-mixed-rule.spec.ts
+  76995cedd37b4ced 3-40
+packages/vue-email/src/tailwind/css/extract-rules-per-class.ts
+  76995cedd37b4ced 3-47
+packages/vue-email/src/tailwind/compatibility/sanitize-class-name.ts
+  76995cedd37b4ced 1,12-39
+packages/vue-email/src/tailwind/compatibility/sanitize-class-name.spec.ts
+  76995cedd37b4ced 2-3,5-8
+packages/vue-email/src/tailwind/css/get-custom-properties.spec.ts
+  76995cedd37b4ced 1-21,23-61
+packages/vue-email/src/tailwind/css/unwrap-value.spec.ts
+  76995cedd37b4ced 3-32
+packages/vue-email/src/tailwind/compatibility/unescape-class.spec.ts
+  76995cedd37b4ced 1-20
+packages/vue-email/src/tailwind/css/resolve-calc-expressions.ts
+  76995cedd37b4ced 3-156
+packages/vue-email/src/tailwind/css/extract-rules-per-class.spec.ts
+  76995cedd37b4ced 3-7,9-73
+packages/vue-email/src/tailwind/index.ts
+  76995cedd37b4ced 1-2
+packages/vue-email/src/tailwind/css/unwrap-value.ts
+  76995cedd37b4ced 1-9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "2c9314f84a6bbd350ac7f41b40d77432d1cde8d4",
+  "prompts": {
+    "76995cedd37b4ced": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2aeb051c-24d0-47b9-af59-65dd83355795",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 2324,
+      "total_deletions": 24,
+      "accepted_lines": 2257,
+      "overriden_lines": 46
+    }
+  }
+}

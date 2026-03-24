@@ -24,7 +24,7 @@ function getHtmlNode(path: {
     return topNode
   }
 
-  return path.stack.at(-1) as HtmlNode
+  return path.stack?.at(-1) as unknown as HtmlNode
 }
 
 function recursivelyMapDoc(
@@ -80,7 +80,7 @@ function recursivelyMapDoc(
       }
     }
 
-    return nextDoc as builders.Doc
+    return nextDoc as unknown as builders.Doc
   }
 
   return callback(doc)
@@ -88,11 +88,9 @@ function recursivelyMapDoc(
 
 const modifiedHtml = { ...html } as Plugin
 if (modifiedHtml.printers) {
-  const previousPrint = modifiedHtml.printers.html.print
-  modifiedHtml.printers.html.print = (path, options, print, args) => {
-    const node = getHtmlNode(
-      path as Parameters<Plugin['printers']['html']['print']>[0],
-    )
+  const previousPrint = (modifiedHtml.printers as Record<string, any>).html.print
+  ;(modifiedHtml.printers as Record<string, any>).html.print = (path: any, options: any, print: any, args: any) => {
+    const node = getHtmlNode(path)
 
     const rawPrintingResult = previousPrint(path, options, print, args)
 

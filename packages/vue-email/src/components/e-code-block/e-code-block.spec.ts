@@ -153,6 +153,45 @@ describe('eCodeBlock', () => {
     expect(wrapper.find('pre').attributes('data-testid')).toBe('my-codeblock')
   })
 
+  it('renders code with nested token structures (e.g., template literals)', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        // eslint-disable-next-line no-template-curly-in-string
+        code: 'const x = `hello ${name}`',
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    // Template literals produce nested tokens in Prism
+    const spans = wrapper.findAll('span')
+    expect(spans.length).toBeGreaterThan(3)
+  })
+
+  it('renders code with token aliases (CSS selectors)', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: '.class { color: red; }',
+        language: 'css',
+        theme: xonokai,
+      },
+    })
+    const html = wrapper.html()
+    expect(html).toContain('span')
+    // CSS tokens should have styling from theme
+    expect(html).toContain('style=')
+  })
+
+  it('handles empty code string', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: '',
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    expect(wrapper.find('pre').exists()).toBe(true)
+  })
+
   it('matches snapshot', () => {
     const wrapper = mount(ECodeBlock, {
       props: {

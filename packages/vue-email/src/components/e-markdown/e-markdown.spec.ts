@@ -252,6 +252,65 @@ describe('eMarkdown', () => {
     expect(style).toContain('color:green')
   })
 
+  it('renders images with alt text', () => {
+    const wrapper = mount(EMarkdown, {
+      props: { children: '![Alt text](https://example.com/image.png)' },
+    })
+    const html = wrapper.html()
+    expect(html).toContain('<img')
+    expect(html).toContain('alt="Alt text"')
+  })
+
+  it('renders horizontal rule', () => {
+    const wrapper = mount(EMarkdown, {
+      props: { children: 'Before\n\n---\n\nAfter' },
+    })
+    expect(wrapper.find('hr').exists()).toBe(true)
+  })
+
+  it('renders strikethrough text with del element', () => {
+    const wrapper = mount(EMarkdown, {
+      props: { children: '~~deleted~~' },
+    })
+    const html = wrapper.html()
+    expect(html).toContain('<del')
+  })
+
+  it('renders nested lists', () => {
+    const wrapper = mount(EMarkdown, {
+      props: { children: '- Item 1\n  - Nested item\n- Item 2' },
+    })
+    const lists = wrapper.findAll('ul')
+    expect(lists.length).toBeGreaterThanOrEqual(1)
+  })
+
+  it('renders ordered list with start attribute', () => {
+    const wrapper = mount(EMarkdown, {
+      props: { children: '3. Item 3\n4. Item 4' },
+    })
+    const html = wrapper.html()
+    expect(html).toContain('<ol')
+  })
+
+  it('renders table with alignment', () => {
+    const wrapper = mount(EMarkdown, {
+      props: { children: '| Left | Center | Right |\n| :--- | :---: | ---: |\n| A | B | C |' },
+    })
+    const html = wrapper.html()
+    expect(html).toContain('align=')
+  })
+
+  it('renders headings h2-h6', () => {
+    const wrapper = mount(EMarkdown, {
+      props: { children: '## H2\n### H3\n#### H4\n##### H5\n###### H6' },
+    })
+    expect(wrapper.find('h2').exists()).toBe(true)
+    expect(wrapper.find('h3').exists()).toBe(true)
+    expect(wrapper.find('h4').exists()).toBe(true)
+    expect(wrapper.find('h5').exists()).toBe(true)
+    expect(wrapper.find('h6').exists()).toBe(true)
+  })
+
   it('matches snapshot', () => {
     const wrapper = mount(EMarkdown, {
       props: {

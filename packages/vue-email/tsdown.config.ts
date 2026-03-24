@@ -5,5 +5,7 @@ export default defineConfig({
   format: ['esm'],
   dts: true,
   clean: true,
-  external: ['vue'],
+  deps: {
+    neverBundle: ['vue'],
+  },
 })

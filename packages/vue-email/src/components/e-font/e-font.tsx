@@ -1,4 +1,4 @@
-import { type CSSProperties, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 
 type FallbackFont =
   | 'Arial'
@@ -20,8 +20,8 @@ type FontFormat =
   | 'embedded-opentype'
   | 'svg'
 
-type FontWeight = CSSProperties['fontWeight']
-type FontStyle = CSSProperties['fontStyle']
+type FontWeight = number | string
+type FontStyle = 'normal' | 'italic' | 'oblique' | (string & {})
 
 export interface EFontProps {
   fontFamily: string

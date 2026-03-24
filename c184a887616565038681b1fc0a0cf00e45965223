@@ -1,0 +1,59 @@
+packages/vue-email/src/components/e-text/e-text.spec.ts
+  63054ab7239f0f2b 1-90
+packages/vue-email/src/components/e-preview/e-preview.tsx
+  63054ab7239f0f2b 1-53
+packages/vue-email/tsdown.config.ts
+  63054ab7239f0f2b 1-9
+packages/vue-email/src/components/e-body/e-body.spec.ts
+  63054ab7239f0f2b 1-97
+packages/vue-email/src/components/e-font/e-font.spec.ts
+  63054ab7239f0f2b 1-155
+packages/vue-email/src/components/e-row/e-row.tsx
+  63054ab7239f0f2b 1-25
+packages/vue-email/src/components/e-section/e-section.tsx
+  63054ab7239f0f2b 1-27
+packages/vue-email/src/components/e-text/e-text.tsx
+  63054ab7239f0f2b 1-181
+packages/vue-email/src/components/e-font/e-font.tsx
+  63054ab7239f0f2b 1-89
+.please/docs/knowledge/tech-stack.md
+  63054ab7239f0f2b 21
+packages/vue-email/src/components/e-preview/e-preview.spec.ts
+  63054ab7239f0f2b 1-114
+packages/vue-email/src/components/e-row/e-row.spec.ts
+  63054ab7239f0f2b 1-77
+packages/vue-email/src/components/e-container/e-container.spec.ts
+  63054ab7239f0f2b 1-83
+packages/vue-email/package.json
+  63054ab7239f0f2b 6,11,18
+packages/vue-email/src/components/e-container/e-container.tsx
+  63054ab7239f0f2b 1-29
+packages/vue-email/src/components/e-heading/e-heading.spec.ts
+  63054ab7239f0f2b 1-111
+packages/vue-email/src/components/e-section/e-section.spec.ts
+  63054ab7239f0f2b 1-70
+packages/vue-email/src/components/e-body/e-body.tsx
+  63054ab7239f0f2b 1-79
+packages/vue-email/src/components/e-heading/e-heading.tsx
+  63054ab7239f0f2b 1-164
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "c184a887616565038681b1fc0a0cf00e45965223",
+  "prompts": {
+    "63054ab7239f0f2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e179b919-b6f7-4406-bea0-d0f430942272",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 1507,
+      "total_deletions": 50,
+      "accepted_lines": 1508,
+      "overriden_lines": 0
+    }
+  }
+}

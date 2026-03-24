@@ -1,0 +1,29 @@
+.please/docs/tracks/active/vendor-port-tailwind-20260324/spec.md
+  76995cedd37b4ced 1-55
+.please/docs/tracks/active/vendor-port-tailwind-20260324/metadata.json
+  76995cedd37b4ced 1-9
+.please/docs/tracks/active/vendor-port-tailwind-20260324/plan.md
+  76995cedd37b4ced 1-157
+.please/docs/tracks/index.md
+  76995cedd37b4ced 12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "4c59aeb04105cabe907ad4157da2ee30a3f71167",
+  "prompts": {
+    "76995cedd37b4ced": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2aeb051c-24d0-47b9-af59-65dd83355795",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 224,
+      "total_deletions": 2,
+      "accepted_lines": 222,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -1,1 +1,16 @@
-// Barrel export — all core email components
+// Core email components
+export { EBody } from './components/e-body/e-body'
+export { EButton } from './components/e-button/e-button'
+export { EColumn } from './components/e-column/e-column'
+export { EContainer } from './components/e-container/e-container'
+export { EFont } from './components/e-font/e-font'
+export { EHead } from './components/e-head/e-head'
+export { EHeading } from './components/e-heading/e-heading'
+export { EHr } from './components/e-hr/e-hr'
+export { EHtml } from './components/e-html/e-html'
+export { EImg } from './components/e-img/e-img'
+export { ELink } from './components/e-link/e-link'
+export { EPreview } from './components/e-preview/e-preview'
+export { ERow } from './components/e-row/e-row'
+export { ESection } from './components/e-section/e-section'
+export { EText } from './components/e-text/e-text'

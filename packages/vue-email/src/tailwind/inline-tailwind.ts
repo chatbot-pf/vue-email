@@ -1,4 +1,4 @@
-import type { CssNode, StyleSheet } from 'css-tree'
+import type { CssNode, Rule, StyleSheet } from 'css-tree'
 import type { TailwindConfig } from './presets'
 import { generate, List } from 'css-tree'
 import { sanitizeClassName } from './compatibility/sanitize-class-name'
@@ -100,8 +100,8 @@ function processTag(
   tagName: string,
   attrs: string,
   classValue: string,
-  inlinableRules: Map<string, ReturnType<typeof inlinableRules.get> extends infer T ? NonNullable<T> : never>,
-  nonInlinableRules: Map<string, unknown>,
+  inlinableRules: Map<string, Rule>,
+  nonInlinableRules: Map<string, Rule>,
   customProperties: ReturnType<typeof getCustomProperties>,
 ): string {
   const classes = classValue.trim().split(WHITESPACE_SPLIT_REGEX).filter(Boolean)
@@ -211,9 +211,6 @@ export async function inlineTailwind(
   // Build result by concatenating unmodified segments and processed tags
   const segments: string[] = []
   let lastEnd = 0
-
-  // Reset regex to start from beginning
-  CLASS_ATTR_REGEX.lastIndex = 0
 
   const allClassMatches = [...html.matchAll(CLASS_ATTR_REGEX)]
 

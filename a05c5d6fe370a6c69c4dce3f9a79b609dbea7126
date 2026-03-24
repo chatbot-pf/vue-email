@@ -1,0 +1,29 @@
+packages/vue-email/package.json
+  63054ab7239f0f2b 1-40
+tsconfig.json
+  63054ab7239f0f2b 14,16-19
+package.json
+  63054ab7239f0f2b 7-9,14-15
+vitest.config.ts
+  63054ab7239f0f2b 9,12-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "a05c5d6fe370a6c69c4dce3f9a79b609dbea7126",
+  "prompts": {
+    "63054ab7239f0f2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e179b919-b6f7-4406-bea0-d0f430942272",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 766,
+      "total_deletions": 32,
+      "accepted_lines": 739,
+      "overriden_lines": 0
+    }
+  }
+}

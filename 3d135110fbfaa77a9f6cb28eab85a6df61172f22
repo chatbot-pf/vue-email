@@ -1,0 +1,25 @@
+packages/vue-email/src/tailwind/tailwindcss/tailwind-stylesheets/tailwind-stylesheets.spec.ts
+  76995cedd37b4ced 1-62
+packages/vue-email/src/tailwind/tailwindcss/tailwind-stylesheets/utilities.ts
+  76995cedd37b4ced 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "3d135110fbfaa77a9f6cb28eab85a6df61172f22",
+  "prompts": {
+    "76995cedd37b4ced": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2aeb051c-24d0-47b9-af59-65dd83355795",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 67,
+      "total_deletions": 0,
+      "accepted_lines": 67,
+      "overriden_lines": 0
+    }
+  }
+}

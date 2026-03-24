@@ -37,12 +37,15 @@
   },
   "dependencies": {
     "@vue/server-renderer": "^3.5.30",
+    "css-tree": "^3.2.1",
     "html-to-text": "^9.0.5",
     "marked": "^17.0.5",
     "prettier": "^3.8.1",
-    "prismjs": "^1.30.0"
+    "prismjs": "^1.30.0",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
+    "@types/css-tree": "^2.3.11",
     "@types/html-to-text": "^9.0.4",
     "@types/prismjs": "^1.26.6"
   }

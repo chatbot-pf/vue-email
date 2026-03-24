@@ -116,24 +116,17 @@ export function parsePadding(properties: PaddingProperties): {
   paddingBottom: number | undefined
   paddingLeft: number | undefined
 } {
-  let paddingTop: PaddingType
-  let paddingRight: PaddingType
-  let paddingBottom: PaddingType
-  let paddingLeft: PaddingType
+  // Pass 1: process shorthand
+  let { paddingTop, paddingRight, paddingBottom, paddingLeft } =
+    properties.padding != null
+      ? parsePaddingValue(properties.padding)
+      : { paddingTop: undefined as PaddingType, paddingRight: undefined as PaddingType, paddingBottom: undefined as PaddingType, paddingLeft: undefined as PaddingType }
 
-  for (const [key, value] of Object.entries(properties)) {
-    if (key === 'padding') {
-      ;({ paddingTop, paddingRight, paddingBottom, paddingLeft } = parsePaddingValue(value))
-    } else if (key === 'paddingTop') {
-      paddingTop = value
-    } else if (key === 'paddingRight') {
-      paddingRight = value
-    } else if (key === 'paddingBottom') {
-      paddingBottom = value
-    } else if (key === 'paddingLeft') {
-      paddingLeft = value
-    }
-  }
+  // Pass 2: explicit overrides always win
+  if (properties.paddingTop != null) paddingTop = properties.paddingTop
+  if (properties.paddingRight != null) paddingRight = properties.paddingRight
+  if (properties.paddingBottom != null) paddingBottom = properties.paddingBottom
+  if (properties.paddingLeft != null) paddingLeft = properties.paddingLeft
 
   return {
     paddingTop: paddingTop != null ? convertToPx(paddingTop) : undefined,

@@ -55,22 +55,20 @@ describe('EBody', () => {
     expect(td.attributes('style')).toContain('padding')
   })
 
-  it('resets margin to 0 on body when user sets margin', () => {
+  it('resets margin on body element to exactly 0 when user sets margin', () => {
     const wrapper = mount(EBody, {
       attrs: { style: { margin: '10px' } },
     })
-    const bodyStyle = wrapper.attributes('style') ?? ''
-    // margin should be reset to 0 on body
-    expect(bodyStyle).toContain('margin')
+    const el = wrapper.element as HTMLElement
+    expect(el.style.margin).toBe('0px')
   })
 
-  it('resets padding to 0 on body when user sets padding', () => {
+  it('resets padding on body element to exactly 0 when user sets padding', () => {
     const wrapper = mount(EBody, {
       attrs: { style: { padding: '20px' } },
     })
-    const bodyStyle = wrapper.attributes('style') ?? ''
-    // padding should be reset to 0 on body
-    expect(bodyStyle).toContain('padding')
+    const el = wrapper.element as HTMLElement
+    expect(el.style.padding).toBe('0px')
   })
 
   it('does not add margin to body when user does not set it', () => {

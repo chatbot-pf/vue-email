@@ -76,30 +76,16 @@ interface MarginProperties {
 }
 
 function computeMargins(properties: MarginProperties): MarginResult {
-  let result: MarginResult = {
-    marginTop: undefined,
-    marginRight: undefined,
-    marginBottom: undefined,
-    marginLeft: undefined,
-  }
+  // Pass 1: process shorthand
+  const result: MarginResult = properties.margin != null
+    ? parseMarginValue(properties.margin)
+    : { marginTop: undefined, marginRight: undefined, marginBottom: undefined, marginLeft: undefined }
 
-  for (const [key, value] of Object.entries(properties)) {
-    if (key === 'margin') {
-      result = parseMarginValue(value)
-    }
-    else if (key === 'marginTop') {
-      result.marginTop = value
-    }
-    else if (key === 'marginRight') {
-      result.marginRight = value
-    }
-    else if (key === 'marginBottom') {
-      result.marginBottom = value
-    }
-    else if (key === 'marginLeft') {
-      result.marginLeft = value
-    }
-  }
+  // Pass 2: explicit overrides always win
+  if (properties.marginTop != null) result.marginTop = properties.marginTop
+  if (properties.marginRight != null) result.marginRight = properties.marginRight
+  if (properties.marginBottom != null) result.marginBottom = properties.marginBottom
+  if (properties.marginLeft != null) result.marginLeft = properties.marginLeft
 
   return result
 }

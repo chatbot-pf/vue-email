@@ -81,6 +81,22 @@ describe('EText', () => {
     expect(el.style.marginRight).toBe('20px')
   })
 
+  it('suppresses default margins when margin shorthand is provided', () => {
+    const wrapper = mount(EText, { props: { style: 'margin: 0' } })
+    const el = wrapper.element as HTMLElement
+    expect(el.style.marginTop).toBe('0px')
+    expect(el.style.marginBottom).toBe('0px')
+  })
+
+  it('explicit marginTop overrides shorthand regardless of key order', () => {
+    const wrapper = mount(EText, {
+      attrs: { style: { margin: '0', marginTop: '8px' } },
+    })
+    const el = wrapper.element as HTMLElement
+    expect(el.style.marginTop).toBe('8px')
+    expect(el.style.marginBottom).toBe('0px')
+  })
+
   it('matches snapshot', () => {
     const wrapper = mount(EText, {
       slots: { default: 'Hello' },

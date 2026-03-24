@@ -7,7 +7,7 @@
 | Track | Feature | Type | Issue | Started | Status |
 |-------|---------|------|-------|---------|--------|
 | [core-email-components-20260324](active/core-email-components-20260324/) | Core Email Components | feature | — | 2026-03-24 | draft |
-| [vendor-package-port-20260324](active/vendor-package-port-20260324/) | Vendor Package Port — Core Email Components | feature | — | 2026-03-24 | planned |
+| [vendor-package-port-20260324](active/vendor-package-port-20260324/) | Vendor Package Port — Core Email Components | feature | — | 2026-03-24 | in_progress |
 
 ## Recently Completed
 

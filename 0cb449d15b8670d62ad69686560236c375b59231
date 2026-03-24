@@ -1,0 +1,45 @@
+packages/vue-email/src/components/e-code-inline/e-code-inline.tsx
+  bf09aa2a31447d2f 14-16
+.please/docs/tracks/active/vendor-port-render-advanced-20260324/spec.md
+  bf09aa2a31447d2f 22
+packages/vue-email/src/utils/pretty.ts
+  bf09aa2a31447d2f 91-94
+packages/vue-email/package.json
+  bf09aa2a31447d2f 36
+packages/vue-email/src/components/e-markdown/e-markdown.tsx
+  bf09aa2a31447d2f 109,173
+packages/vue-email/src/components/e-code-inline/e-code-inline.spec.ts
+  bf09aa2a31447d2f 65
+packages/vue-email/src/components/e-code-block/e-code-block.spec.ts
+  bf09aa2a31447d2f 75-76,82-87
+.please/docs/tracks/active/vendor-port-render-advanced-20260324/plan.md
+  bf09aa2a31447d2f 128
+packages/vue-email/src/utils/render.spec.ts
+  bf09aa2a31447d2f 26-39,41
+packages/vue-email/src/components/e-markdown/parse-css-in-js-to-inline-css.ts
+  bf09aa2a31447d2f 10,66-69,77
+packages/vue-email/src/utils/pretty.spec.ts
+  bf09aa2a31447d2f 47
+packages/vue-email/src/components/e-markdown/parse-css-in-js-to-inline-css.spec.ts
+  bf09aa2a31447d2f 48-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "0cb449d15b8670d62ad69686560236c375b59231",
+  "prompts": {
+    "bf09aa2a31447d2f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8982618a-cb1d-48d5-9512-d69c8f858a3f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 45,
+      "total_deletions": 19,
+      "accepted_lines": 45,
+      "overriden_lines": 0
+    }
+  }
+}

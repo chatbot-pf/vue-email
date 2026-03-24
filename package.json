@@ -1,10 +1,18 @@
 {
-  "name": "@mail-please/vue-email",
+  "name": "vue-email-mono-repo",
   "version": "0.0.1",
+  "private": true,
   "description": "Vue port of react-email. High-quality, unstyled components for creating emails using Vue.",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "build": "bun --filter '@mail-please/*' run build",
+    "typecheck": "bun --filter '@mail-please/*' run typecheck",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky"
@@ -29,9 +37,16 @@
     "@antfu/eslint-config": "^7.7.3",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@vitejs/plugin-vue-jsx": "^5.1.5",
+    "@vue/test-utils": "^2.4.6",
     "eslint": "^10.1.0",
+    "happy-dom": "^20.8.7",
     "husky": "^9.1.7",
-    "lint-staged": "^16.4.0"
+    "lint-staged": "^16.4.0",
+    "tsdown": "^0.21.4",
+    "typescript": "^6.0.2",
+    "vitest": "^4.1.1",
+    "vue": "^3.5.30"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,vue,mjs,cjs}": [

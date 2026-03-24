@@ -1,0 +1,38 @@
+{
+  "name": "@mail-please/vue-email",
+  "version": "0.0.1",
+  "description": "Vue port of react-email. High-quality, unstyled components for creating emails using Vue.",
+  "type": "module",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": "^3.3.0"
+  },
+  "keywords": [
+    "vue",
+    "email",
+    "components",
+    "vue3",
+    "typescript"
+  ],
+  "author": "Minsu Lee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amondnet/vue-email.git",
+    "directory": "packages/vue-email"
+  }
+}

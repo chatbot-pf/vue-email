@@ -18,7 +18,7 @@
 
 | Tool | Purpose |
 |------|---------|
-| unbuild / vite (library mode) | Library build & bundling |
+| tsdown (Rolldown-powered) | Library build & bundling |
 | commitlint | Conventional commit enforcement |
 | mise | Task runner & version manager |
 

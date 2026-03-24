@@ -216,6 +216,9 @@ Temporary Items
 # please plugin runtime state
 .please/state/
 
+# Claude Code local settings
+.claude/settings.local.json
+
 ### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json

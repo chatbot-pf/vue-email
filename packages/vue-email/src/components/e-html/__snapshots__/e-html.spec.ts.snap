@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EHtml > matches snapshot 1`] = `
+"<html lang="en" dir="ltr">
+
+  <body>Email body</body>
+
+</html>"
+`;

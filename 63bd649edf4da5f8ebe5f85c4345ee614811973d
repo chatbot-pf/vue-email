@@ -1,0 +1,31 @@
+package.json
+  63054ab7239f0f2b 8-12
+tsconfig.json
+  63054ab7239f0f2b 1-26
+src/index.ts
+  63054ab7239f0f2b 1
+vitest.config.ts
+  63054ab7239f0f2b 1-22
+build.config.ts
+  63054ab7239f0f2b 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "63bd649edf4da5f8ebe5f85c4345ee614811973d",
+  "prompts": {
+    "63054ab7239f0f2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e179b919-b6f7-4406-bea0-d0f430942272",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 67,
+      "total_deletions": 1,
+      "accepted_lines": 67,
+      "overriden_lines": 0
+    }
+  }
+}

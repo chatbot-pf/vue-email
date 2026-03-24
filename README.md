@@ -86,6 +86,18 @@ claude
 ```
 
 
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Product Guide](.please/docs/knowledge/product.md) | Vision, target users, core features, and constraints |
+| [Product Guidelines](.please/docs/knowledge/product-guidelines.md) | API design principles, component design, and code style |
+| [Tech Stack](.please/docs/knowledge/tech-stack.md) | Runtime, frameworks, build tools, and dev commands |
+| [Workflow](.please/docs/knowledge/workflow.md) | TDD lifecycle, quality gates, and branch strategy |
+| [Tracks Index](.please/docs/tracks/index.md) | Active and completed implementation tracks |
+| [Workspace Index](.please/INDEX.md) | Full directory map of the `.please/` workspace |
+
+
 ## References
 
 - [React Email](https://github.com/resend/react-email) - Original project

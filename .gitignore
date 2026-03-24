@@ -213,6 +213,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# please plugin runtime state
+.please/state/
+
 ### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json

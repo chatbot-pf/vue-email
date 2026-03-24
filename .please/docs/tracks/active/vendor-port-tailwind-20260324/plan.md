@@ -57,18 +57,18 @@ For HTML manipulation, we use regex-based class extraction and string manipulati
 
 ### Phase 3: Tailwind Compiler Setup
 
-- [ ] T011 Port Tailwind stylesheet templates (file: packages/vue-email/src/tailwind/tailwindcss/tailwind-stylesheets/index.ts) (depends on T001)
-- [ ] T012 Port setupTailwind and sanitizeStyleSheet (file: packages/vue-email/src/tailwind/tailwindcss/setup-tailwind.ts) (depends on T005, T006, T007, T011)
+- [x] (2026-03-24 18:09 KST) T011 Port Tailwind stylesheet templates (file: packages/vue-email/src/tailwind/tailwindcss/tailwind-stylesheets/index.ts) (depends on T001)
+- [x] (2026-03-24 18:10 KST) T012 Port setupTailwind and sanitizeStyleSheet (file: packages/vue-email/src/tailwind/tailwindcss/setup-tailwind.ts) (depends on T005, T006, T007, T011)
 
 ### Phase 4: HTML Processing Layer (New Code)
 
-- [ ] T013 Implement inlineTailwind HTML processor (file: packages/vue-email/src/tailwind/inline-tailwind.ts) (depends on T003, T004, T008, T009, T010, T012)
-- [ ] T014 Export pixelBasedPreset and TailwindConfig types (file: packages/vue-email/src/tailwind/presets.ts) (depends on T001)
+- [x] (2026-03-24 18:14 KST) T013 Implement inlineTailwind HTML processor (file: packages/vue-email/src/tailwind/inline-tailwind.ts) (depends on T003, T004, T008, T009, T010, T012)
+- [x] (2026-03-24 18:10 KST) T014 Export pixelBasedPreset and TailwindConfig types (file: packages/vue-email/src/tailwind/presets.ts) (depends on T001)
 
 ### Phase 5: Render Integration
 
-- [ ] T015 Integrate tailwind option into render function (file: packages/vue-email/src/utils/render.ts) (depends on T013, T014)
-- [ ] T016 Update barrel exports (file: packages/vue-email/src/index.ts) (depends on T013, T014, T015)
+- [x] (2026-03-24 18:15 KST) T015 Integrate tailwind option into render function (file: packages/vue-email/src/utils/render.ts) (depends on T013, T014)
+- [x] (2026-03-24 18:16 KST) T016 Update barrel exports (file: packages/vue-email/src/index.ts) (depends on T013, T014, T015)
 
 ### Phase 6: Verification
 
@@ -132,14 +132,14 @@ For HTML manipulation, we use regex-based class extraction and string manipulati
 
 ## Progress
 
-| Phase                       | Status  |
-| --------------------------- | ------- |
-| Phase 1: Dependencies       | pending |
-| Phase 2: CSS Utilities      | pending |
-| Phase 3: Tailwind Compiler  | pending |
-| Phase 4: HTML Processing    | pending |
-| Phase 5: Render Integration | pending |
-| Phase 6: Verification       | pending |
+| Phase                       | Status    |
+| --------------------------- | --------- |
+| Phase 1: Dependencies       | completed |
+| Phase 2: CSS Utilities      | completed |
+| Phase 3: Tailwind Compiler  | completed |
+| Phase 4: HTML Processing    | completed |
+| Phase 5: Render Integration | completed |
+| Phase 6: Verification       | pending   |
 
 ## Decision Log
 
@@ -155,3 +155,5 @@ For HTML manipulation, we use regex-based class extraction and string manipulati
 - `sanitizeDeclarations` includes a full OKLCH → RGB color conversion matrix for email client compatibility
 - Tailwind stylesheet templates (theme.ts, utilities.ts, preflight.ts) total ~870 lines of embedded CSS
 - React Email's `mapReactTree` directly calls component functions, bypassing React lifecycle — confirms post-render approach is safer for Vue
+- Observation: ESLint e18e/prefer-static-regex and regexp/no-super-linear-backtracking rules are strict — all regex must be at module scope and avoid ambiguous quantifier combinations
+  Evidence: Pre-commit hook failed with 11 ESLint errors on the initial inline-tailwind.ts implementation; required moving all regex to module scope and replacing `/<(\w+)([^>]*)>/` with a character-by-character tag parser to avoid backtracking

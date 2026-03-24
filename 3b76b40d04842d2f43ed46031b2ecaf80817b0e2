@@ -1,0 +1,25 @@
+packages/vue-email/tsdown.config.ts
+  63054ab7239f0f2b 8-10
+packages/vue-email/src/components/e-font/e-font.tsx
+  63054ab7239f0f2b 1,23-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "3b76b40d04842d2f43ed46031b2ecaf80817b0e2",
+  "prompts": {
+    "63054ab7239f0f2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e179b919-b6f7-4406-bea0-d0f430942272",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 6,
+      "total_deletions": 4,
+      "accepted_lines": 60,
+      "overriden_lines": 0
+    }
+  }
+}

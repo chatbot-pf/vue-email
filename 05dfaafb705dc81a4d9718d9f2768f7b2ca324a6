@@ -1,0 +1,31 @@
+packages/vue-email/src/tailwind/sanitize-stylesheet.spec.ts
+  76995cedd37b4ced 1-25
+packages/vue-email/src/tailwind/presets.ts
+  76995cedd37b4ced 1-62
+packages/vue-email/src/tailwind/sanitize-stylesheet.ts
+  76995cedd37b4ced 1-10
+packages/vue-email/src/tailwind/tailwindcss/setup-tailwind.ts
+  76995cedd37b4ced 1-83
+packages/vue-email/src/tailwind/tailwindcss/setup-tailwind.spec.ts
+  76995cedd37b4ced 1-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "05dfaafb705dc81a4d9718d9f2768f7b2ca324a6",
+  "prompts": {
+    "76995cedd37b4ced": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2aeb051c-24d0-47b9-af59-65dd83355795",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 218,
+      "total_deletions": 0,
+      "accepted_lines": 218,
+      "overriden_lines": 0
+    }
+  }
+}

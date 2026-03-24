@@ -1,0 +1,29 @@
+packages/vue-email/src/components/e-markdown/e-markdown.spec.ts
+  bf09aa2a31447d2f 255-313
+packages/vue-email/src/utils/pretty.ts
+  bf09aa2a31447d2f 27,83,91-92
+packages/vue-email/src/components/e-code-block/e-code-block.spec.ts
+  bf09aa2a31447d2f 156-194
+vitest.config.ts
+  bf09aa2a31447d2f 13,16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "14f0e7ded5326f261fa30b5cbe21a82c90fc5c18",
+  "prompts": {
+    "bf09aa2a31447d2f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8982618a-cb1d-48d5-9512-d69c8f858a3f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 107,
+      "total_deletions": 11,
+      "accepted_lines": 104,
+      "overriden_lines": 0
+    }
+  }
+}

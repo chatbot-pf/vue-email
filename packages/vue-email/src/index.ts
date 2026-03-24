@@ -23,6 +23,10 @@ export { ERow } from './components/e-row/e-row'
 export { ESection } from './components/e-section/e-section'
 
 export { EText } from './components/e-text/e-text'
+// Tailwind utilities
+export { inlineTailwind } from './tailwind/inline-tailwind'
+export { pixelBasedPreset } from './tailwind/presets'
+export type { TailwindConfig } from './tailwind/presets'
 // Render utility
 export { render } from './utils/render'
 export type { RenderOptions } from './utils/render'

@@ -1,10 +1,13 @@
+const camelToKebabRegex = /([a-z0-9])([A-Z])/g
+const quoteRegex = /"/g
+
 function camelToKebabCase(str: string): string {
-  return str.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+  return str.replace(camelToKebabRegex, '$1-$2').toLowerCase()
 }
 
 function escapeQuotes(value: unknown): unknown {
   if (typeof value === 'string' && value.includes('"')) {
-    return value.replace(/"/g, '&#x27;')
+    return value.replace(quoteRegex, '&#x27;')
   }
   return value
 }

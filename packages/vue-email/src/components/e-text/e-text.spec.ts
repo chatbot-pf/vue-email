@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EText } from './e-text'
 
-describe('EText', () => {
+describe('eText', () => {
   it('renders a p element', () => {
     const wrapper = mount(EText)
     expect(wrapper.element.tagName.toLowerCase()).toBe('p')

@@ -1,4 +1,5 @@
-import { convert, type HtmlToTextOptions, type SelectorDefinition } from 'html-to-text'
+import type { HtmlToTextOptions, SelectorDefinition } from 'html-to-text'
+import { convert } from 'html-to-text'
 
 export const plainTextSelectors: SelectorDefinition[] = [
   { selector: 'img', format: 'skip' },

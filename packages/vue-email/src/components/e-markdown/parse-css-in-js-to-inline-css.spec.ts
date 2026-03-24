@@ -50,7 +50,7 @@ describe('parseCssInJsToInlineCss', () => {
   })
 
   it('does not escape single quotes or other characters', () => {
-    expect(parseCssInJsToInlineCss({ content: "'hello'" })).toBe("content:'hello'")
+    expect(parseCssInJsToInlineCss({ content: '\'hello\'' })).toBe('content:\'hello\'')
   })
 
   it('joins multiple properties with semicolons', () => {
@@ -60,16 +60,46 @@ describe('parseCssInJsToInlineCss', () => {
 
   it('handles all numerical CSS properties correctly', () => {
     const numericalProps = [
-      'width', 'height', 'margin', 'marginTop', 'marginRight', 'marginBottom', 'marginLeft',
-      'padding', 'paddingTop', 'paddingRight', 'paddingBottom', 'paddingLeft',
-      'borderWidth', 'borderTopWidth', 'borderRightWidth', 'borderBottomWidth', 'borderLeftWidth',
-      'outlineWidth', 'top', 'right', 'bottom', 'left',
-      'fontSize', 'letterSpacing', 'wordSpacing',
-      'maxWidth', 'minWidth', 'maxHeight', 'minHeight',
-      'borderRadius', 'borderTopLeftRadius', 'borderTopRightRadius',
-      'borderBottomLeftRadius', 'borderBottomRightRadius',
-      'textIndent', 'gridColumnGap', 'gridRowGap', 'gridGap',
-      'translateX', 'translateY',
+      'width',
+      'height',
+      'margin',
+      'marginTop',
+      'marginRight',
+      'marginBottom',
+      'marginLeft',
+      'padding',
+      'paddingTop',
+      'paddingRight',
+      'paddingBottom',
+      'paddingLeft',
+      'borderWidth',
+      'borderTopWidth',
+      'borderRightWidth',
+      'borderBottomWidth',
+      'borderLeftWidth',
+      'outlineWidth',
+      'top',
+      'right',
+      'bottom',
+      'left',
+      'fontSize',
+      'letterSpacing',
+      'wordSpacing',
+      'maxWidth',
+      'minWidth',
+      'maxHeight',
+      'minHeight',
+      'borderRadius',
+      'borderTopLeftRadius',
+      'borderTopRightRadius',
+      'borderBottomLeftRadius',
+      'borderBottomRightRadius',
+      'textIndent',
+      'gridColumnGap',
+      'gridRowGap',
+      'gridGap',
+      'translateX',
+      'translateY',
     ] as const
 
     for (const prop of numericalProps) {

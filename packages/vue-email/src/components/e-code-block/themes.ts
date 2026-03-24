@@ -3,7 +3,7 @@ import type { CSSProperties } from 'vue'
 export type Theme = Record<string, CSSProperties>
 
 export const xonokai: Theme = {
-  base: {
+  'base': {
     MozTabSize: '2',
     OTabSize: '2',
     tabSize: '2',
@@ -23,91 +23,91 @@ export const xonokai: Theme = {
     overflow: 'auto',
     position: 'relative',
   },
-  namespace: {
+  'namespace': {
     opacity: '.7',
   },
-  comment: {
+  'comment': {
     color: '#6f705e',
   },
-  prolog: {
+  'prolog': {
     color: '#6f705e',
   },
-  doctype: {
+  'doctype': {
     color: '#6f705e',
   },
-  cdata: {
+  'cdata': {
     color: '#6f705e',
   },
-  operator: {
+  'operator': {
     color: '#a77afe',
   },
-  boolean: {
+  'boolean': {
     color: '#a77afe',
   },
-  number: {
+  'number': {
     color: '#a77afe',
   },
   'attr-name': {
     color: '#e6d06c',
   },
-  string: {
+  'string': {
     color: '#e6d06c',
   },
-  entity: {
+  'entity': {
     color: '#e6d06c',
     cursor: 'help',
   },
-  url: {
+  'url': {
     color: '#e6d06c',
   },
-  selector: {
+  'selector': {
     color: '#a6e22d',
   },
-  inserted: {
+  'inserted': {
     color: '#a6e22d',
   },
-  atrule: {
+  'atrule': {
     color: '#ef3b7d',
   },
   'attr-value': {
     color: '#ef3b7d',
   },
-  keyword: {
+  'keyword': {
     color: '#ef3b7d',
   },
-  important: {
+  'important': {
     color: '#ef3b7d',
     fontWeight: 'bold',
   },
-  deleted: {
+  'deleted': {
     color: '#ef3b7d',
   },
-  regex: {
+  'regex': {
     color: '#76d9e6',
   },
-  statement: {
+  'statement': {
     color: '#76d9e6',
     fontWeight: 'bold',
   },
-  placeholder: {
+  'placeholder': {
     color: '#fff',
   },
-  variable: {
+  'variable': {
     color: '#fff',
   },
-  bold: {
+  'bold': {
     fontWeight: 'bold',
   },
-  punctuation: {
+  'punctuation': {
     color: '#bebec5',
   },
-  italic: {
+  'italic': {
     fontStyle: 'italic',
   },
 }
 
 export const vscDarkPlus: Theme = {
-  base: {
+  'base': {
     color: '#d4d4d4',
     fontSize: '13px',
     textShadow: 'none',
@@ -130,48 +130,48 @@ export const vscDarkPlus: Theme = {
     overflow: 'auto',
     background: '#1e1e1e',
   },
-  comment: { color: '#6a9955' },
-  prolog: { color: '#6a9955' },
-  punctuation: { color: '#d4d4d4' },
-  property: { color: '#9cdcfe' },
-  tag: { color: '#569cd6' },
-  boolean: { color: '#569cd6' },
-  number: { color: '#b5cea8' },
-  constant: { color: '#9cdcfe' },
-  symbol: { color: '#b5cea8' },
-  inserted: { color: '#b5cea8' },
-  unit: { color: '#b5cea8' },
-  selector: { color: '#d7ba7d' },
+  'comment': { color: '#6a9955' },
+  'prolog': { color: '#6a9955' },
+  'punctuation': { color: '#d4d4d4' },
+  'property': { color: '#9cdcfe' },
+  'tag': { color: '#569cd6' },
+  'boolean': { color: '#569cd6' },
+  'number': { color: '#b5cea8' },
+  'constant': { color: '#9cdcfe' },
+  'symbol': { color: '#b5cea8' },
+  'inserted': { color: '#b5cea8' },
+  'unit': { color: '#b5cea8' },
+  'selector': { color: '#d7ba7d' },
   'attr-name': { color: '#9cdcfe' },
-  string: { color: '#ce9178' },
-  char: { color: '#ce9178' },
-  builtin: { color: '#ce9178' },
-  deleted: { color: '#ce9178' },
-  operator: { color: '#d4d4d4' },
-  entity: { color: '#569cd6' },
-  atrule: { color: '#ce9178' },
-  keyword: { color: '#569CD6' },
-  function: { color: '#dcdcaa' },
-  regex: { color: '#d16969' },
-  important: { color: '#569cd6' },
-  italic: { fontStyle: 'italic' },
+  'string': { color: '#ce9178' },
+  'char': { color: '#ce9178' },
+  'builtin': { color: '#ce9178' },
+  'deleted': { color: '#ce9178' },
+  'operator': { color: '#d4d4d4' },
+  'entity': { color: '#569cd6' },
+  'atrule': { color: '#ce9178' },
+  'keyword': { color: '#569CD6' },
+  'function': { color: '#dcdcaa' },
+  'regex': { color: '#d16969' },
+  'important': { color: '#569cd6' },
+  'italic': { fontStyle: 'italic' },
   'class-name': { color: '#4ec9b0' },
   'maybe-class-name': { color: '#4ec9b0' },
-  console: { color: '#9cdcfe' },
-  parameter: { color: '#9cdcfe' },
-  interpolation: { color: '#9cdcfe' },
-  variable: { color: '#9cdcfe' },
-  namespace: { color: '#4ec9b0' },
-  cdata: { color: '#808080' },
+  'console': { color: '#9cdcfe' },
+  'parameter': { color: '#9cdcfe' },
+  'interpolation': { color: '#9cdcfe' },
+  'variable': { color: '#9cdcfe' },
+  'namespace': { color: '#4ec9b0' },
+  'cdata': { color: '#808080' },
   'attr-value': { color: '#ce9178' },
 }
 
 export const dracula: Theme = {
-  base: {
+  'base': {
     color: '#f8f8f2',
     background: '#282a36',
     textShadow: '0 1px rgba(0, 0, 0, 0.3)',
-    fontFamily: "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+    fontFamily: 'Consolas, Monaco, \'Andale Mono\', \'Ubuntu Mono\', monospace',
     textAlign: 'left',
     whiteSpace: 'pre',
     wordSpacing: 'normal',
@@ -189,35 +189,35 @@ export const dracula: Theme = {
     overflow: 'auto',
     borderRadius: '0.3em',
   },
-  comment: { color: '#6272a4' },
-  prolog: { color: '#6272a4' },
-  doctype: { color: '#6272a4' },
-  cdata: { color: '#6272a4' },
-  punctuation: { color: '#f8f8f2' },
-  property: { color: '#ff79c6' },
-  tag: { color: '#ff79c6' },
-  constant: { color: '#ff79c6' },
-  symbol: { color: '#ff79c6' },
-  deleted: { color: '#ff79c6' },
-  boolean: { color: '#bd93f9' },
-  number: { color: '#bd93f9' },
-  selector: { color: '#50fa7b' },
+  'comment': { color: '#6272a4' },
+  'prolog': { color: '#6272a4' },
+  'doctype': { color: '#6272a4' },
+  'cdata': { color: '#6272a4' },
+  'punctuation': { color: '#f8f8f2' },
+  'property': { color: '#ff79c6' },
+  'tag': { color: '#ff79c6' },
+  'constant': { color: '#ff79c6' },
+  'symbol': { color: '#ff79c6' },
+  'deleted': { color: '#ff79c6' },
+  'boolean': { color: '#bd93f9' },
+  'number': { color: '#bd93f9' },
+  'selector': { color: '#50fa7b' },
   'attr-name': { color: '#50fa7b' },
-  string: { color: '#50fa7b' },
-  char: { color: '#50fa7b' },
-  builtin: { color: '#50fa7b' },
-  inserted: { color: '#50fa7b' },
-  operator: { color: '#f8f8f2' },
-  entity: { color: '#f8f8f2', cursor: 'help' },
-  url: { color: '#f8f8f2' },
-  variable: { color: '#f8f8f2' },
-  atrule: { color: '#f1fa8c' },
+  'string': { color: '#50fa7b' },
+  'char': { color: '#50fa7b' },
+  'builtin': { color: '#50fa7b' },
+  'inserted': { color: '#50fa7b' },
+  'operator': { color: '#f8f8f2' },
+  'entity': { color: '#f8f8f2', cursor: 'help' },
+  'url': { color: '#f8f8f2' },
+  'variable': { color: '#f8f8f2' },
+  'atrule': { color: '#f1fa8c' },
   'attr-value': { color: '#f1fa8c' },
-  function: { color: '#f1fa8c' },
+  'function': { color: '#f1fa8c' },
   'class-name': { color: '#f1fa8c' },
-  keyword: { color: '#8be9fd' },
-  regex: { color: '#ffb86c' },
-  important: { color: '#ffb86c', fontWeight: 'bold' },
-  bold: { fontWeight: 'bold' },
-  italic: { fontStyle: 'italic' },
+  'keyword': { color: '#8be9fd' },
+  'regex': { color: '#ffb86c' },
+  'important': { color: '#ffb86c', fontWeight: 'bold' },
+  'bold': { fontWeight: 'bold' },
+  'italic': { fontStyle: 'italic' },
 }

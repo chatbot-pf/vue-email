@@ -52,18 +52,18 @@ This is an early-stage monorepo. No component source code exists yet — only in
 
 ## Stack
 
-| Layer | Tool |
-|-------|------|
-| Runtime | Bun 1.3.10 |
-| Framework | Vue 3 (Composition API only) |
-| Language | TypeScript (strict) |
-| Build | unbuild / vite (library mode) |
-| Test | Vitest |
-| Lint | ESLint with @antfu/eslint-config |
-| Commits | Conventional Commits (commitlint enforced) |
-| Git hooks | husky (pre-commit: lint-staged) + mise (commit-msg: commitlint) |
-| Releases | release-please |
-| Version manager | mise |
+| Layer           | Tool                                                            |
+| --------------- | --------------------------------------------------------------- |
+| Runtime         | Bun 1.3.10                                                      |
+| Framework       | Vue 3 (Composition API only)                                    |
+| Language        | TypeScript (strict)                                             |
+| Build           | unbuild / vite (library mode)                                   |
+| Test            | Vitest                                                          |
+| Lint            | ESLint with @antfu/eslint-config                                |
+| Commits         | Conventional Commits (commitlint enforced)                      |
+| Git hooks       | husky (pre-commit: lint-staged) + mise (commit-msg: commitlint) |
+| Releases        | release-please                                                  |
+| Version manager | mise                                                            |
 
 ## Commit Conventions
 

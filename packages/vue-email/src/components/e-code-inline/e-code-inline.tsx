@@ -16,7 +16,8 @@ export const ECodeInline = defineComponent({
 
       return (
         <>
-          <style>{`
+          <style>
+            {`
         meta ~ .cino {
           display: none !important;
           opacity: 0 !important;
@@ -25,7 +26,8 @@ export const ECodeInline = defineComponent({
         meta ~ .cio {
           display: block !important;
         }
-      `}</style>
+      `}
+          </style>
 
           <code class={`${classStr}cino`} {...restAttrs}>
             {slots.default?.()}

@@ -8,8 +8,8 @@ interface HtmlNode {
   kind?: 'element' | 'text' | 'ieConditionalComment' | 'root'
   name?: string
   sourceSpan: {
-    start: { file: unknown[]; offset: number; line: number; col: number }
-    end: { file: unknown[]; offset: number; line: number; col: number }
+    start: { file: unknown[], offset: number, line: number, col: number }
+    end: { file: unknown[], offset: number, line: number, col: number }
     details: null
   }
   parent?: HtmlNode
@@ -24,7 +24,7 @@ function getHtmlNode(path: {
     return topNode
   }
 
-  return path.stack?.[path.stack.length - 1] as HtmlNode
+  return path.stack.at(-1) as HtmlNode
 }
 
 function recursivelyMapDoc(
@@ -123,7 +123,7 @@ const defaults: Options = {
   parser: 'html',
 }
 
-export const pretty = (str: string, options: Options = {}) => {
+export function pretty(str: string, options: Options = {}) {
   return format(str.replaceAll('\0', ''), {
     ...defaults,
     ...options,

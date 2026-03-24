@@ -2,11 +2,11 @@
 
 ## Runtime & Language
 
-| Layer | Technology | Version | Notes |
-|-------|-----------|---------|-------|
-| Runtime | Bun | 1.3.10 | Ultra-fast JS/TS runtime |
-| Language | TypeScript | strict mode | Primary language |
-| Framework | Vue 3 | latest | Composition API only |
+| Layer     | Technology | Version     | Notes                    |
+| --------- | ---------- | ----------- | ------------------------ |
+| Runtime   | Bun        | 1.3.10      | Ultra-fast JS/TS runtime |
+| Language  | TypeScript | strict mode | Primary language         |
+| Framework | Vue 3      | latest      | Composition API only     |
 
 ## Package Management
 
@@ -16,11 +16,11 @@
 
 ## Build & Tooling
 
-| Tool | Purpose |
-|------|---------|
-| tsdown (Rolldown-powered) | Library build & bundling |
-| commitlint | Conventional commit enforcement |
-| mise | Task runner & version manager |
+| Tool                      | Purpose                         |
+| ------------------------- | ------------------------------- |
+| tsdown (Rolldown-powered) | Library build & bundling        |
+| commitlint                | Conventional commit enforcement |
+| mise                      | Task runner & version manager   |
 
 ## Testing
 

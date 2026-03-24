@@ -1,5 +1,5 @@
-import { defineComponent, h } from 'vue'
 import { describe, expect, it } from 'vitest'
+import { defineComponent, h } from 'vue'
 import { render } from './render'
 
 const SimpleEmail = defineComponent({

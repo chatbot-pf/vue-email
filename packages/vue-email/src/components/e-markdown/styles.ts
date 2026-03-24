@@ -77,7 +77,7 @@ const link: CSSProperties = {
   backgroundColor: 'transparent',
 }
 
-export type StylesType = {
+export interface StylesType {
   h1?: CSSProperties
   h2?: CSSProperties
   h3?: CSSProperties

@@ -16,12 +16,12 @@
 
 ## Quality Gates
 
-| Gate | Threshold | Tool |
-|------|-----------|------|
-| Unit Tests | All passing | Vitest |
-| Code Coverage | >80% | Vitest coverage |
-| Type Check | No errors | `tsc --noEmit` |
-| Commit Lint | Conventional | commitlint |
+| Gate          | Threshold    | Tool            |
+| ------------- | ------------ | --------------- |
+| Unit Tests    | All passing  | Vitest          |
+| Code Coverage | >80%         | Vitest coverage |
+| Type Check    | No errors    | `tsc --noEmit`  |
+| Commit Lint   | Conventional | commitlint      |
 
 ## Phase Completion Protocol
 

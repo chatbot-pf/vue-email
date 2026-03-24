@@ -1,4 +1,8 @@
-import { type CSSProperties, defineComponent } from 'vue'
+import type { CSSProperties } from 'vue'
+import { defineComponent } from 'vue'
+
+const whitespaceSplitRegex = /\s+/
+const kebabToCamelRegex = /-([a-z])/g
 
 type MarginType = string | number | undefined
 
@@ -20,7 +24,7 @@ function parseMarginValue(value: MarginType): MarginResult {
   }
 
   if (typeof value === 'string') {
-    const values = value.trim().split(/\s+/)
+    const values = value.trim().split(whitespaceSplitRegex)
 
     if (values.length === 1) {
       return {
@@ -82,10 +86,14 @@ function computeMargins(properties: MarginProperties): MarginResult {
     : { marginTop: undefined, marginRight: undefined, marginBottom: undefined, marginLeft: undefined }
 
   // Pass 2: explicit overrides always win
-  if (properties.marginTop != null) result.marginTop = properties.marginTop
-  if (properties.marginRight != null) result.marginRight = properties.marginRight
-  if (properties.marginBottom != null) result.marginBottom = properties.marginBottom
-  if (properties.marginLeft != null) result.marginLeft = properties.marginLeft
+  if (properties.marginTop != null)
+    result.marginTop = properties.marginTop
+  if (properties.marginRight != null)
+    result.marginRight = properties.marginRight
+  if (properties.marginBottom != null)
+    result.marginBottom = properties.marginBottom
+  if (properties.marginLeft != null)
+    result.marginLeft = properties.marginLeft
 
   return result
 }
@@ -100,7 +108,7 @@ function parseStyleString(style: string): CSSProperties {
     const val = declaration.slice(colonIdx + 1).trim()
     if (!prop || !val)
       continue
-    const camelProp = prop.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase())
+    const camelProp = prop.replace(kebabToCamelRegex, (_, c: string) => c.toUpperCase())
     result[camelProp] = val
   }
   return result as CSSProperties

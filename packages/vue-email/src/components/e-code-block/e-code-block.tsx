@@ -1,8 +1,10 @@
 import type { CSSProperties } from 'vue'
-import { defineComponent } from 'vue'
-import * as PrismImport from 'prismjs'
 import type { PrismLanguage } from './languages'
 import type { Theme } from './themes'
+import * as PrismImport from 'prismjs'
+import { defineComponent } from 'vue'
+
+const lineSplitRegex = /\r\n|\r|\n/g
 
 // Avoid import issue in different bundler contexts (same pattern as React Email)
 const Prism: typeof import('prismjs') = (PrismImport as any).default ?? PrismImport
@@ -97,12 +99,12 @@ export const ECodeBlock = defineComponent({
     return () => {
       const languageGrammar = Prism.languages[props.language as string]
       if (typeof languageGrammar === 'undefined') {
-        throw new Error(
+        throw new TypeError(
           `ECodeBlock: There is no language defined on Prism called ${props.language}`,
         )
       }
 
-      const lines = props.code.split(/\r\n|\r|\n/gm)
+      const lines = props.code.split(lineSplitRegex)
       const tokensPerLine = lines.map(line => Prism.tokenize(line, languageGrammar))
 
       const preStyle: CSSProperties = {
@@ -116,19 +118,21 @@ export const ECodeBlock = defineComponent({
           <code>
             {tokensPerLine.map((tokensForLine, lineIndex) => (
               <>
-                {props.lineNumbers ? (
-                  <span
-                    style={{
-                      width: '2em',
-                      height: '1em',
-                      display: 'inline-block',
-                      fontFamily: props.fontFamily,
-                    }}
-                  >
-                    {lineIndex + 1}
-                  </span>
-                ) : null}
-                {tokensForLine.map((token, i) =>
+                {props.lineNumbers
+                  ? (
+                      <span
+                        style={{
+                          width: '2em',
+                          height: '1em',
+                          display: 'inline-block',
+                          fontFamily: props.fontFamily,
+                        }}
+                      >
+                        {lineIndex + 1}
+                      </span>
+                    )
+                  : null}
+                {tokensForLine.map(token =>
                   renderToken(token, props.theme, { fontFamily: props.fontFamily }),
                 )}
                 <br />

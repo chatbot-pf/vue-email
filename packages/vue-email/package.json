@@ -1,16 +1,30 @@
 {
   "name": "@mail-please/vue-email",
+  "type": "module",
   "version": "0.0.1",
   "description": "Vue port of react-email. High-quality, unstyled components for creating emails using Vue.",
-  "type": "module",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "author": "Minsu Lee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbot-pf/vue-email.git",
+    "directory": "packages/vue-email"
+  },
+  "keywords": [
+    "vue",
+    "email",
+    "components",
+    "vue3",
+    "typescript"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
   },
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -20,20 +34,6 @@
   },
   "peerDependencies": {
     "vue": "^3.3.0"
-  },
-  "keywords": [
-    "vue",
-    "email",
-    "components",
-    "vue3",
-    "typescript"
-  ],
-  "author": "Minsu Lee",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chatbot-pf/vue-email.git",
-    "directory": "packages/vue-email"
   },
   "dependencies": {
     "@vue/server-renderer": "^3.5.30",

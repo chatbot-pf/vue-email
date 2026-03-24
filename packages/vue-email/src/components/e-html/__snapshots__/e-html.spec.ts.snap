@@ -7,3 +7,11 @@ exports[`EHtml > matches snapshot 1`] = `
 
 </html>"
 `;
+
+exports[`eHtml > matches snapshot 1`] = `
+"<html lang="en" dir="ltr">
+
+  <body>Email body</body>
+
+</html>"
+`;

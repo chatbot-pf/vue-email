@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { ERow } from './e-row'
 
-describe('ERow', () => {
+describe('eRow', () => {
   it('renders a table element', () => {
     const wrapper = mount(ERow)
     expect(wrapper.element.tagName.toLowerCase()).toBe('table')

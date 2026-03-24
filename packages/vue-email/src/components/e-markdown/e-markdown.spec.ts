@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import EMarkdown from './e-markdown'
 
-describe('EMarkdown', () => {
+describe('eMarkdown', () => {
   it('renders a div with data-id="vue-email-markdown"', () => {
     const wrapper = mount(EMarkdown, {
       slots: { default: '# Hello' },

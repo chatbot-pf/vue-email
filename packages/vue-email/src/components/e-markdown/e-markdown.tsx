@@ -1,7 +1,11 @@
+import type { CSSProperties, VNode } from 'vue'
+import type { StylesType } from './styles'
 import { marked, Renderer } from 'marked'
-import { type CSSProperties, type VNode, defineComponent } from 'vue'
+import { defineComponent } from 'vue'
 import { parseCssInJsToInlineCss } from './parse-css-in-js-to-inline-css'
-import { type StylesType, styles as defaultStyles } from './styles'
+import { styles as defaultStyles } from './styles'
+
+const trailingNewlineRegex = /\n$/
 
 function extractTextFromVNodes(vnodes: VNode[]): string {
   return vnodes
@@ -58,7 +62,7 @@ export const EMarkdown = defineComponent({
       }
 
       renderer.code = ({ text }) => {
-        const normalized = `${text.replace(/\n$/, '')}\n`
+        const normalized = `${text.replace(trailingNewlineRegex, '')}\n`
         const style = parseCssInJsToInlineCss(finalStyles.codeBlock as Record<string, unknown>)
         return `<pre${style !== '' ? ` style="${style}"` : ''}><code>${normalized}</code></pre>\n`
       }
@@ -122,9 +126,9 @@ export const EMarkdown = defineComponent({
         const styleKey = token.ordered ? 'ol' : 'ul'
         const listStyle = parseCssInJsToInlineCss(finalStyles[styleKey] as Record<string, unknown>)
         return (
-          `<${type}${startAt}${listStyle !== '' ? ` style="${listStyle}"` : ''}>\n`
-          + token.items.map(item => renderer.listitem(item)).join('')
-          + `</${type}>\n`
+          `<${type}${startAt}${listStyle !== '' ? ` style="${listStyle}"` : ''}>\n${
+            token.items.map(item => renderer.listitem(item)).join('')
+          }</${type}>\n`
         )
       }
 

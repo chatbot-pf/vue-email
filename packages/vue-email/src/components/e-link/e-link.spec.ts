@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import ELink from './e-link'
 
-describe('ELink', () => {
+describe('eLink', () => {
   it('renders an anchor element', () => {
     const wrapper = mount(ELink, {
       slots: { default: 'Click me' },
@@ -56,7 +56,7 @@ describe('ELink', () => {
   it('forwards href and other attributes', () => {
     const wrapper = mount(ELink, {
       props: { href: 'https://example.com' },
-      attrs: { 'data-testid': 'my-link', rel: 'noopener' },
+      attrs: { 'data-testid': 'my-link', 'rel': 'noopener' },
       slots: { default: 'Go' },
     })
     const a = wrapper.find('a')

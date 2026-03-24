@@ -6,7 +6,7 @@ import { xonokai } from './themes'
 const simpleCode = `const x = 1;`
 const multiLineCode = `const x = 1;\nconst y = 2;`
 
-describe('ECodeBlock', () => {
+describe('eCodeBlock', () => {
   it('renders a <pre> element', () => {
     const wrapper = mount(ECodeBlock, {
       props: {

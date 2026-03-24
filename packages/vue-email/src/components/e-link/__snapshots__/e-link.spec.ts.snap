@@ -1,3 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`ELink > matches snapshot 1`] = `"<a href="https://example.com" target="_blank" style="color: #067df7; text-decoration-line: none;">Visit us</a>"`;
+
+exports[`eLink > matches snapshot 1`] = `"<a href="https://example.com" target="_blank" style="color: #067df7; text-decoration-line: none;">Visit us</a>"`;

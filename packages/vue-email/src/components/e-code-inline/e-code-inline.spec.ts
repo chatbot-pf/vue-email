@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { ECodeInline } from './e-code-inline'
 
-describe('ECodeInline', () => {
+describe('eCodeInline', () => {
   it('renders a style tag with Orange.fr CSS hack', () => {
     const wrapper = mount(ECodeInline, {
       slots: { default: 'code snippet' },
@@ -62,7 +62,7 @@ describe('ECodeInline', () => {
 
   it('passes HTML attributes through to both code and span elements', () => {
     const wrapper = mount(ECodeInline, {
-      attrs: { id: 'my-code', 'data-test': 'value' },
+      attrs: { 'id': 'my-code', 'data-test': 'value' },
       slots: { default: 'code snippet' },
     })
     const code = wrapper.find('code')

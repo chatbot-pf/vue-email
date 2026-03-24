@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EBody } from './e-body'
 
-describe('EBody', () => {
+describe('eBody', () => {
   it('renders a body element', () => {
     const wrapper = mount(EBody)
     expect(wrapper.element.tagName.toLowerCase()).toBe('body')

@@ -13,23 +13,23 @@ Port the foundational React Email components to Vue 3 using Composition API and 
 
 ## Components in Scope
 
-| Vue Component | React Email Equivalent | Purpose |
-|--------------|----------------------|---------|
-| `EHtml` | `<Html>` | Root email wrapper |
-| `EHead` | `<Head>` | Email head section |
-| `EBody` | `<Body>` | Email body wrapper |
-| `EContainer` | `<Container>` | Centered content container |
-| `ESection` | `<Section>` | Table-based section |
-| `ERow` | `<Row>` | Table row |
-| `EColumn` | `<Column>` | Table cell |
-| `EText` | `<Text>` | Paragraph text |
-| `ELink` | `<Link>` | Anchor link |
-| `EButton` | `<Button>` | Call-to-action button |
-| `EHeading` | `<Heading>` | h1-h6 headings |
-| `EHr` | `<Hr>` | Horizontal rule |
-| `EImg` | `<Img>` | Image |
-| `EPreview` | `<Preview>` | Preview text |
-| `EFont` | `<Font>` | Web font declaration |
+| Vue Component | React Email Equivalent | Purpose                    |
+| ------------- | ---------------------- | -------------------------- |
+| `EHtml`       | `<Html>`               | Root email wrapper         |
+| `EHead`       | `<Head>`               | Email head section         |
+| `EBody`       | `<Body>`               | Email body wrapper         |
+| `EContainer`  | `<Container>`          | Centered content container |
+| `ESection`    | `<Section>`            | Table-based section        |
+| `ERow`        | `<Row>`                | Table row                  |
+| `EColumn`     | `<Column>`             | Table cell                 |
+| `EText`       | `<Text>`               | Paragraph text             |
+| `ELink`       | `<Link>`               | Anchor link                |
+| `EButton`     | `<Button>`             | Call-to-action button      |
+| `EHeading`    | `<Heading>`            | h1-h6 headings             |
+| `EHr`         | `<Hr>`                 | Horizontal rule            |
+| `EImg`        | `<Img>`                | Image                      |
+| `EPreview`    | `<Preview>`            | Preview text               |
+| `EFont`       | `<Font>`               | Web font declaration       |
 
 ## Out of Scope
 

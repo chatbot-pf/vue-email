@@ -1,9 +1,9 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import EButton from './e-button'
-import { convertToPx, parsePadding, pxToPt, computeFontWidthAndSpaceCount } from './utils'
+import { computeFontWidthAndSpaceCount, convertToPx, parsePadding, pxToPt } from './utils'
 
-describe('EButton', () => {
+describe('eButton', () => {
   it('renders an anchor element (not a button)', () => {
     const wrapper = mount(EButton, {
       slots: { default: 'Click me' },
@@ -101,7 +101,7 @@ describe('EButton', () => {
     })
     const html = wrapper.html()
     // &#8202; is a hair space, may be rendered as the actual character or encoded
-    expect(html).toMatch(/&#8202;|\u200a/)
+    expect(html).toMatch(/&#8202;|\u200A/)
   })
 
   it('middle span has correct styles', () => {

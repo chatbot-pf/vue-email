@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import { EHr } from './e-hr'
 
-describe('EHr', () => {
+describe('eHr', () => {
   it('renders an hr element', () => {
     const wrapper = mount(EHr)
     expect(wrapper.element.tagName.toLowerCase()).toBe('hr')
@@ -50,7 +50,7 @@ describe('EHr', () => {
 
   it('allows user styles to override default border', () => {
     const wrapper = mount(EHr, { attrs: { style: { border: '1px solid red' } } })
-    const el = wrapper.element as HTMLElement
+    const _el = wrapper.element as HTMLElement
     // happy-dom expands border shorthand: check the border color reflects red override
     // When user border overrides, red should be present in border colors
     const styleAttr = wrapper.attributes('style') ?? ''

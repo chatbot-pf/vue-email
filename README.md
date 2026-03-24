@@ -4,7 +4,6 @@ A Vue port of [React Email](https://react.email). High-quality, unstyled compone
 
 It reduces the pain of coding responsive emails with dark mode support and takes care of inconsistencies between Gmail, Outlook, and other email clients.
 
-
 ## Getting Started
 
 ### Git Hooks Setup
@@ -20,7 +19,6 @@ mise run setup
 ```
 
 `mise run setup` installs dependencies via `bun install`, then sets up a `commit-msg` hook so [commitlint](https://commitlint.js.org/) runs automatically on each commit.
-
 
 ## Components
 
@@ -46,7 +44,6 @@ Vue ports of React Email components.
 - Tailwind
 - Text (Paragraph)
 
-
 ## Project Structure
 
 ```
@@ -57,7 +54,6 @@ vue-email/
 ├── .mise.toml
 └── commitlint.config.mjs
 ```
-
 
 ## Claude Code Setup
 
@@ -85,18 +81,16 @@ claude
 /review:setup
 ```
 
-
 ## Documentation
 
-| Document | Description |
-|----------|-------------|
-| [Product Guide](.please/docs/knowledge/product.md) | Vision, target users, core features, and constraints |
+| Document                                                           | Description                                             |
+| ------------------------------------------------------------------ | ------------------------------------------------------- |
+| [Product Guide](.please/docs/knowledge/product.md)                 | Vision, target users, core features, and constraints    |
 | [Product Guidelines](.please/docs/knowledge/product-guidelines.md) | API design principles, component design, and code style |
-| [Tech Stack](.please/docs/knowledge/tech-stack.md) | Runtime, frameworks, build tools, and dev commands |
-| [Workflow](.please/docs/knowledge/workflow.md) | TDD lifecycle, quality gates, and branch strategy |
-| [Tracks Index](.please/docs/tracks/index.md) | Active and completed implementation tracks |
-| [Workspace Index](.please/INDEX.md) | Full directory map of the `.please/` workspace |
-
+| [Tech Stack](.please/docs/knowledge/tech-stack.md)                 | Runtime, frameworks, build tools, and dev commands      |
+| [Workflow](.please/docs/knowledge/workflow.md)                     | TDD lifecycle, quality gates, and branch strategy       |
+| [Tracks Index](.please/docs/tracks/index.md)                       | Active and completed implementation tracks              |
+| [Workspace Index](.please/INDEX.md)                                | Full directory map of the `.please/` workspace          |
 
 ## References
 

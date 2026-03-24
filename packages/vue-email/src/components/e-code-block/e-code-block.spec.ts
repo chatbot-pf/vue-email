@@ -1,0 +1,166 @@
+import { mount } from '@vue/test-utils'
+import { describe, expect, it } from 'vitest'
+import ECodeBlock from './e-code-block'
+import { xonokai } from './themes'
+
+const simpleCode = `const x = 1;`
+const multiLineCode = `const x = 1;\nconst y = 2;`
+
+describe('ECodeBlock', () => {
+  it('renders a <pre> element', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: simpleCode,
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    expect(wrapper.find('pre').exists()).toBe(true)
+  })
+
+  it('renders a <code> element inside <pre>', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: simpleCode,
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    expect(wrapper.find('pre code').exists()).toBe(true)
+  })
+
+  it('applies theme base styles with width: 100%', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: simpleCode,
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    const pre = wrapper.find('pre')
+    const style = pre.attributes('style') ?? ''
+    expect(style).toContain('width: 100%')
+    // theme base background
+    expect(style).toContain('#2a2a2a')
+  })
+
+  it('renders syntax-highlighted code with span elements', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: simpleCode,
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    // should have span elements for tokens
+    const spans = wrapper.findAll('span')
+    expect(spans.length).toBeGreaterThan(0)
+  })
+
+  it('renders a <br> after each line', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: multiLineCode,
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    const html = wrapper.html()
+    expect(html).toContain('<br>')
+  })
+
+  it('renders line numbers when lineNumbers prop is true', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: multiLineCode,
+        language: 'javascript',
+        theme: xonokai,
+        lineNumbers: true,
+      },
+    })
+    const html = wrapper.html()
+    // Should contain "1" and "2" as line number text
+    expect(html).toContain('>1<')
+    expect(html).toContain('>2<')
+  })
+
+  it('does not render line numbers when lineNumbers is false', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: simpleCode,
+        language: 'javascript',
+        theme: xonokai,
+        lineNumbers: false,
+      },
+    })
+    const spans = wrapper.findAll('span')
+    // No span should contain just "1" as a number span (line number)
+    const lineNumberSpan = spans.find(s => s.text() === '1' && s.attributes('style')?.includes('2em'))
+    expect(lineNumberSpan).toBeUndefined()
+  })
+
+  it('applies custom fontFamily to tokens', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: simpleCode,
+        language: 'javascript',
+        theme: xonokai,
+        fontFamily: 'Courier New',
+      },
+    })
+    const html = wrapper.html()
+    expect(html).toContain('Courier New')
+  })
+
+  it('converts spaces to email-safe characters in plain text tokens', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: 'hello world',
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    const html = wrapper.html()
+    // Non-breaking space \xA0 (&nbsp;) + zero-width characters are used for email safety
+    // The space between "hello" and "world" should be converted
+    // happy-dom serializes \xA0 as &nbsp; in innerHTML
+    expect(html).toMatch(/&nbsp;|\u00A0/)
+  })
+
+  it('throws an error for unknown languages', () => {
+    expect(() => {
+      mount(ECodeBlock, {
+        props: {
+          code: simpleCode,
+          language: 'nonexistentlanguage' as any,
+          theme: xonokai,
+        },
+      })
+    }).toThrow()
+  })
+
+  it('passes through extra attributes to the <pre> element', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: simpleCode,
+        language: 'javascript',
+        theme: xonokai,
+      },
+      attrs: {
+        'data-testid': 'my-codeblock',
+      },
+    })
+    expect(wrapper.find('pre').attributes('data-testid')).toBe('my-codeblock')
+  })
+
+  it('matches snapshot', () => {
+    const wrapper = mount(ECodeBlock, {
+      props: {
+        code: `const hello = "world";`,
+        language: 'javascript',
+        theme: xonokai,
+      },
+    })
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+})

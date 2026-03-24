@@ -3,21 +3,19 @@
   "version": "0.0.1",
   "description": "Vue port of react-email. High-quality, unstyled components for creating emails using Vue.",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "tsdown",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {

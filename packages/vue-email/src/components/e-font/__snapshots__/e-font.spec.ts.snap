@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EFont > matches snapshot 1`] = `
+"<style>
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    mso-font-alt: 'Arial';
+    src: url(https://fonts.gstatic.com/roboto.woff2) format('woff2');
+  }
+
+  * {
+    font-family: 'Roboto', Arial;
+  }
+</style>"
+`;

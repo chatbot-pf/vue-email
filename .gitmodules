@@ -1,0 +1,3 @@
+[submodule "vendor/react-email"]
+	path = vendor/react-email
+	url = https://github.com/resend/react-email

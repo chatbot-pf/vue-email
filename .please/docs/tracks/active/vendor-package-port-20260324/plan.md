@@ -125,3 +125,28 @@ src/
 - Body wraps children in table structure because Yahoo/AOL convert body to div
 - Text component has sophisticated margin shorthand parsing
 - Preview pads content with invisible Unicode characters to prevent email client truncation
+
+## Outcomes & Retrospective
+
+### What Was Shipped
+- 15 core Vue 3 email components ported from React Email
+- Monorepo structure with `packages/vue-email/` as publishable `@mail-please/vue-email`
+- tsdown build producing ESM + .d.ts (18.71 kB)
+- 192 tests across 15 test files, all passing
+
+### What Went Well
+- Parallel agent implementation significantly sped up component porting
+- TSX + defineComponent approach enabled near 1:1 porting from React source
+- TDD workflow caught issues early (happy-dom style serialization quirks)
+- Code review identified real insertion-order bugs in parsePadding/computeMargins
+
+### What Could Improve
+- Initial project structure (flat → monorepo) required mid-implementation restructure
+- Build tool changed mid-stream (unbuild → tsdown) — should finalize tooling before implementation
+- Some agent-written code had minor issues requiring manual fixes
+
+### Tech Debt Created
+- No `render` utility yet — users can't convert Vue email components to HTML strings
+- Sub-path exports not yet configured (e.g., `@mail-please/vue-email/button`)
+- Individual scoped packages not yet published (`@mail-please/body`, etc.)
+- Coverage thresholds not enforced in CI

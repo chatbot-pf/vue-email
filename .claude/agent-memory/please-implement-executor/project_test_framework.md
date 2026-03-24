@@ -7,6 +7,7 @@ type: project
 **Why:** vue-email is a Vue 3 port of react-email, using Vitest + happy-dom + @vue/test-utils for testing TSX components.
 
 Key facts:
+
 - Package manager: bun (bun.lock present)
 - Test runner: vitest (scripts.test = "vitest run")
 - Test command: `bunx vitest run --reporter=dot`

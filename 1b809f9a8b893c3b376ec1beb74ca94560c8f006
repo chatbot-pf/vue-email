@@ -1,0 +1,29 @@
+packages/vue-email/src/index.ts
+  63054ab7239f0f2b 1-16
+packages/vue-email/src/components/e-button/e-button.spec.ts
+  63054ab7239f0f2b 1-297
+packages/vue-email/src/components/e-button/e-button.tsx
+  63054ab7239f0f2b 1-75
+packages/vue-email/src/components/e-button/utils.ts
+  63054ab7239f0f2b 1-177
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "1b809f9a8b893c3b376ec1beb74ca94560c8f006",
+  "prompts": {
+    "63054ab7239f0f2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e179b919-b6f7-4406-bea0-d0f430942272",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 570,
+      "total_deletions": 3,
+      "accepted_lines": 619,
+      "overriden_lines": 0
+    }
+  }
+}

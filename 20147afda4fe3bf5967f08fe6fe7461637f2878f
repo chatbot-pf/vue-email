@@ -1,0 +1,35 @@
+commitlint.config.mjs
+  a0d1328c85ddc1bd 1-6
+.nvmrc
+  a0d1328c85ddc1bd 1
+.claude/settings.json
+  a0d1328c85ddc1bd 1-38
+package.json
+  a0d1328c85ddc1bd 1-30
+.gitignore
+  a0d1328c85ddc1bd 1-221
+README.md
+  a0d1328c85ddc1bd 1-94
+.mise.toml
+  a0d1328c85ddc1bd 1-17
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "20147afda4fe3bf5967f08fe6fe7461637f2878f",
+  "prompts": {
+    "a0d1328c85ddc1bd": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5e5afa2f-ae3f-4caf-b61c-5fc7ac92927c",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 425,
+      "total_deletions": 18,
+      "accepted_lines": 407,
+      "overriden_lines": 0
+    }
+  }
+}

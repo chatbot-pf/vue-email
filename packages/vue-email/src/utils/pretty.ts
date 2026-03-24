@@ -121,9 +121,17 @@ const defaults: Options = {
   parser: 'html',
 }
 
-export function pretty(str: string, options: Options = {}) {
-  return format(str.replaceAll('\0', ''), {
-    ...defaults,
-    ...options,
-  })
+export async function pretty(str: string, options: Options = {}) {
+  try {
+    return await format(str.replaceAll('\0', ''), {
+      ...defaults,
+      ...options,
+    })
+  }
+  catch (error) {
+    throw new Error(
+      `vue-email: Failed to format HTML output. The rendered HTML may contain syntax that prettier cannot parse.`,
+      { cause: error },
+    )
+  }
 }

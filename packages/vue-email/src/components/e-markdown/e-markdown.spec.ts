@@ -3,11 +3,11 @@ import { describe, expect, it } from 'vitest'
 import EMarkdown from './e-markdown'
 
 describe('eMarkdown', () => {
-  it('renders a div with data-id="vue-email-markdown"', () => {
+  it('renders a div with data-id="react-email-markdown"', () => {
     const wrapper = mount(EMarkdown, {
       slots: { default: '# Hello' },
     })
-    expect(wrapper.find('[data-id="vue-email-markdown"]').exists()).toBe(true)
+    expect(wrapper.find('[data-id="react-email-markdown"]').exists()).toBe(true)
   })
 
   it('renders heading h1 from markdown', () => {
@@ -234,7 +234,7 @@ describe('eMarkdown', () => {
       },
       slots: { default: '# Hello' },
     })
-    const div = wrapper.find('[data-id="vue-email-markdown"]')
+    const div = wrapper.find('[data-id="react-email-markdown"]')
     const style = div.attributes('style') ?? ''
     expect(style).toContain('background-color: blue')
   })

@@ -28,7 +28,17 @@ export async function render(
     },
   })
 
-  const html = await renderToString(app)
+  let html: string
+  try {
+    html = await renderToString(app)
+  }
+  catch (error) {
+    app.unmount()
+    throw new Error(
+      `vue-email render failed: ${error instanceof Error ? error.message : String(error)}`,
+      { cause: error },
+    )
+  }
 
   if (options?.plainText) {
     return toPlainText(html, 'htmlToTextOptions' in options ? options.htmlToTextOptions : undefined)

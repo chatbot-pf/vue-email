@@ -1,5 +1,3 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`EHeading > matches snapshot 1`] = `"<h2 style="margin-top: 10px; margin-bottom: 10px;">Hello</h2>"`;
-
 exports[`eHeading > matches snapshot 1`] = `"<h2 style="margin-top: 10px; margin-bottom: 10px;">Hello</h2>"`;

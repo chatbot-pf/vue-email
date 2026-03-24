@@ -99,14 +99,14 @@ export const EMarkdown = defineComponent({
       renderer.image = ({ href, text, title }) => {
         const style = parseCssInJsToInlineCss(finalStyles.image as Record<string, unknown>)
         return `<img src="${href.replaceAll('"', '&quot;')}" alt="${text.replaceAll('"', '&quot;')}"${
-          title ? ` title="${title}"` : ''
+          title ? ` title="${title.replaceAll('"', '&quot;')}"` : ''
         }${style !== '' ? ` style="${style}"` : ''}>`
       }
 
       renderer.link = ({ href, title, tokens }) => {
         const text = renderer.parser.parseInline(tokens)
         const style = parseCssInJsToInlineCss(finalStyles.link as Record<string, unknown>)
-        return `<a href="${href}" target="_blank"${title ? ` title="${title}"` : ''}${
+        return `<a href="${href}" target="_blank"${title ? ` title="${title.replaceAll('"', '&quot;')}"` : ''}${
           style !== '' ? ` style="${style}"` : ''
         }>${text}</a>`
       }
@@ -191,15 +191,24 @@ export const EMarkdown = defineComponent({
         }
       }
 
-      const html = marked.parse(markdown, {
+      const result = marked.parse(markdown, {
         renderer,
         async: false,
-      }) as string
+      })
+
+      if (typeof result !== 'string') {
+        throw new TypeError(
+          'vue-email EMarkdown: marked.parse() returned a non-string value. '
+          + 'This may indicate an incompatible version of marked.',
+        )
+      }
+
+      const html = result
 
       return (
         <div
           {...attrs}
-          data-id="vue-email-markdown"
+          data-id="react-email-markdown"
           style={props.markdownContainerStyles}
           innerHTML={html}
         />

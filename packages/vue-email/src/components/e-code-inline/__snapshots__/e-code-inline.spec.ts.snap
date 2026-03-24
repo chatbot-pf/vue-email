@@ -1,20 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ECodeInline > matches snapshot 1`] = `
-"<style>
-  meta~.cino {
-    display: none !important;
-    opacity: 0 !important;
-  }
-
-  meta~.cio {
-    display: block !important;
-  }
-</style>
-<code class="cino">const x = 1</code>
-<span class="cio" style="display: none;">const x = 1</span>"
-`;
-
 exports[`eCodeInline > matches snapshot 1`] = `
 "<style>
   meta~.cino {

@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/amondnet/vue-email.git"
+    "url": "git+https://github.com/chatbot-pf/vue-email.git"
   },
   "keywords": [
     "vue",
@@ -29,9 +29,9 @@
   "author": "Minsu Lee",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/amondnet/vue-email/issues"
+    "url": "https://github.com/chatbot-pf/vue-email/issues"
   },
-  "homepage": "https://github.com/amondnet/vue-email#readme",
+  "homepage": "https://github.com/chatbot-pf/vue-email#readme",
   "dependencies": {},
   "devDependencies": {
     "@antfu/eslint-config": "^7.7.3",

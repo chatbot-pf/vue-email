@@ -106,7 +106,7 @@ export const EMarkdown = defineComponent({
       renderer.link = ({ href, title, tokens }) => {
         const text = renderer.parser.parseInline(tokens)
         const style = parseCssInJsToInlineCss(finalStyles.link as Record<string, unknown>)
-        return `<a href="${href}" target="_blank"${title ? ` title="${title.replaceAll('"', '&quot;')}"` : ''}${
+        return `<a href="${href.replaceAll('"', '&quot;')}" target="_blank"${title ? ` title="${title.replaceAll('"', '&quot;')}"` : ''}${
           style !== '' ? ` style="${style}"` : ''
         }>${text}</a>`
       }
@@ -170,7 +170,7 @@ export const EMarkdown = defineComponent({
       renderer.tablecell = (token) => {
         const text = renderer.parser.parseInline(token.tokens)
         const type = token.header ? 'th' : 'td'
-        const style = parseCssInJsToInlineCss(finalStyles.td as Record<string, unknown>)
+        const style = parseCssInJsToInlineCss((token.header ? finalStyles.th : finalStyles.td) as Record<string, unknown>)
         const tag = token.align
           ? `<${type} align="${token.align}"${style !== '' ? ` style="${style}"` : ''}>`
           : `<${type}${style !== '' ? ` style="${style}"` : ''}>`

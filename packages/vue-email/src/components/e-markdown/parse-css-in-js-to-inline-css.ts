@@ -7,7 +7,7 @@ function camelToKebabCase(str: string): string {
 
 function escapeQuotes(value: unknown): unknown {
   if (typeof value === 'string' && value.includes('"')) {
-    return value.replace(quoteRegex, '&#x27;')
+    return value.replace(quoteRegex, '&quot;')
   }
   return value
 }
@@ -63,6 +63,10 @@ export function parseCssInJsToInlineCss(
 
   return Object.entries(cssProperties)
     .map(([property, value]) => {
+      if (value == null) {
+        return ''
+      }
+
       if (typeof value === 'number' && numericalCssProperties.includes(property as typeof numericalCssProperties[number])) {
         return `${camelToKebabCase(property)}:${value}px`
       }
@@ -70,5 +74,6 @@ export function parseCssInJsToInlineCss(
       const escapedValue = escapeQuotes(value)
       return `${camelToKebabCase(property)}:${escapedValue}`
     })
+    .filter(Boolean)
     .join(';')
 }

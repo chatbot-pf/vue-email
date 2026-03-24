@@ -11,7 +11,9 @@ export const ECodeInline = defineComponent({
 
       const spanStyle = {
         display: 'none',
-        ...(style as Record<string, string> | undefined),
+        ...(style !== null && typeof style === 'object' && !Array.isArray(style)
+          ? (style as Record<string, string>)
+          : {}),
       }
 
       return (

@@ -72,16 +72,19 @@ describe('eCodeBlock', () => {
   it('renders line numbers when lineNumbers prop is true', () => {
     const wrapper = mount(ECodeBlock, {
       props: {
-        code: multiLineCode,
+        // Use code without standalone "1" or "2" digits to avoid false positives
+        code: `const a = true;\nconst b = false;`,
         language: 'javascript',
         theme: xonokai,
         lineNumbers: true,
       },
     })
-    const html = wrapper.html()
-    // Should contain "1" and "2" as line number text
-    expect(html).toContain('>1<')
-    expect(html).toContain('>2<')
+    const spans = wrapper.findAll('span')
+    // Line number spans have a fixed width of 2em — find them by their style
+    const lineNumberSpans = spans.filter(s => s.attributes('style')?.includes('2em'))
+    expect(lineNumberSpans.length).toBe(2)
+    expect(lineNumberSpans[0].text()).toBe('1')
+    expect(lineNumberSpans[1].text()).toBe('2')
   })
 
   it('does not render line numbers when lineNumbers is false', () => {

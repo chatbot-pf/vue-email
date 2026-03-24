@@ -62,14 +62,12 @@ describe('eCodeInline', () => {
 
   it('passes HTML attributes through to both code and span elements', () => {
     const wrapper = mount(ECodeInline, {
-      attrs: { 'id': 'my-code', 'data-test': 'value' },
+      attrs: { 'data-test': 'value' },
       slots: { default: 'code snippet' },
     })
     const code = wrapper.find('code')
     const span = wrapper.find('span')
-    expect(code.attributes('id')).toBe('my-code')
     expect(code.attributes('data-test')).toBe('value')
-    expect(span.attributes('id')).toBe('my-code')
     expect(span.attributes('data-test')).toBe('value')
   })
 

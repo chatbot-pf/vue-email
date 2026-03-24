@@ -122,11 +122,11 @@ packages/vue-email/src/
 
 ## Decision Log
 
-| Date       | Decision                                    | Rationale                                                                                                            |
-| ---------- | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| 2026-03-24 | Single render implementation (no env split) | Vue SSR via `renderToString` is universal — works in Node, Edge, and browser. No need for React's 3-variant approach |
-| 2026-03-24 | Dependencies as peer/optional               | `prismjs`, `marked`, `html-to-text`, `prettier` externalized to keep bundle small                                    |
-| 2026-03-24 | v-html for Markdown output                  | Vue equivalent of React's dangerouslySetInnerHTML — necessary for marked HTML output                                 |
+| Date       | Decision                                    | Rationale                                                                                                             |
+| ---------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| 2026-03-24 | Single render implementation (no env split) | Vue SSR via `renderToString` is universal — works in Node, Edge, and browser. No need for React's 3-variant approach  |
+| 2026-03-24 | Dependencies as direct (externalized)       | `prismjs`, `marked`, `html-to-text`, `prettier` added as dependencies and externalized in tsdown to keep bundle small |
+| 2026-03-24 | v-html for Markdown output                  | Vue equivalent of React's dangerouslySetInnerHTML — necessary for marked HTML output                                  |
 
 ## Surprises & Discoveries
 

@@ -45,8 +45,8 @@ describe('parseCssInJsToInlineCss', () => {
     expect(parseCssInJsToInlineCss({ position: 'absolute' })).toBe('position:absolute')
   })
 
-  it('escapes double quotes to &#x27; in string values', () => {
-    expect(parseCssInJsToInlineCss({ fontFamily: '"Arial", sans-serif' })).toBe('font-family:&#x27;Arial&#x27;, sans-serif')
+  it('escapes double quotes to &quot; in string values', () => {
+    expect(parseCssInJsToInlineCss({ fontFamily: '"Arial", sans-serif' })).toBe('font-family:&quot;Arial&quot;, sans-serif')
   })
 
   it('does not escape single quotes or other characters', () => {

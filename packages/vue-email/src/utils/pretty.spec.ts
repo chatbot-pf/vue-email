@@ -44,6 +44,7 @@ describe('pretty', () => {
       .split('\n')
       .find(line => line.includes('<!--[if mso]>'))
     expect(msoLine).toBeDefined()
+    expect(msoLine).toContain('<![endif]-->')
   })
 
   it('formats real email HTML with DOCTYPE structure', async () => {

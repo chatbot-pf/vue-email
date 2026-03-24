@@ -88,6 +88,10 @@ function recursivelyMapDoc(
 
 const modifiedHtml = { ...html } as Plugin
 if (modifiedHtml.printers) {
+  modifiedHtml.printers = {
+    ...(modifiedHtml.printers as Record<string, any>),
+    html: { ...(modifiedHtml.printers as Record<string, any>).html },
+  }
   const previousPrint = (modifiedHtml.printers as Record<string, any>).html.print
   ;(modifiedHtml.printers as Record<string, any>).html.print = (path: any, options: any, print: any, args: any) => {
     const node = getHtmlNode(path)

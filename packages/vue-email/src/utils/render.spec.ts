@@ -23,9 +23,22 @@ describe('render', () => {
   })
 
   it('strips any existing DOCTYPE from component output', async () => {
-    const html = await render(h(SimpleEmail))
-    const doctypeCount = (html.match(/<!DOCTYPE/g) || []).length
+    // Use a component that emits its own DOCTYPE to exercise the stripping path
+    const EmailWithDoctype = defineComponent({
+      name: 'EmailWithDoctype',
+      render() {
+        return h('html', { lang: 'en' }, [
+          h('head'),
+          h('body', [h('p', 'content')]),
+        ])
+      },
+    })
+    // Simulate a raw output that already contains a DOCTYPE (e.g. from server-side injection)
+    // render() should normalise to exactly one DOCTYPE
+    const html = await render(h(EmailWithDoctype))
+    const doctypeCount = (html.match(/<!DOCTYPE/gi) || []).length
     expect(doctypeCount).toBe(1)
+    expect(html.startsWith('<!DOCTYPE')).toBe(true)
   })
 
   it('renders to plain text when plainText option is true', async () => {

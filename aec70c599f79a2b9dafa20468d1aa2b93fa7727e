@@ -1,0 +1,23 @@
+packages/vue-email/tsdown.config.ts
+  76995cedd37b4ced 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "aec70c599f79a2b9dafa20468d1aa2b93fa7727e",
+  "prompts": {
+    "76995cedd37b4ced": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "2aeb051c-24d0-47b9-af59-65dd83355795",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}

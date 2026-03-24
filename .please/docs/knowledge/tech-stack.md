@@ -19,6 +19,8 @@
 | Tool                      | Purpose                         |
 | ------------------------- | ------------------------------- |
 | tsdown (Rolldown-powered) | Library build & bundling        |
+| tailwindcss v4            | Tailwind CSS → inline styles    |
+| css-tree                  | CSS AST parsing & manipulation  |
 | commitlint                | Conventional commit enforcement |
 | mise                      | Task runner & version manager   |
 

@@ -1,0 +1,23 @@
+.please/docs/tracks/active/vendor-package-port-20260324/metadata.json
+  18655fca05d7f2b7 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "5c4dba333d1aa025ef4795013ae6a254d8f9970d",
+  "prompts": {
+    "18655fca05d7f2b7": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ab68f6fc-94c5-4f6f-a380-c020dec648f8",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 1,
+      "total_deletions": 1,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}

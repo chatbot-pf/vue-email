@@ -4,25 +4,21 @@
 > Spec: [spec.md](./spec.md)
 
 ## Overview
-
 - **Source**: /please:plan
 - **Track**: vendor-port-render-advanced-20260324
 - **Created**: 2026-03-24
 - **Approach**: Vue SSR (renderToString) for render; defineComponent + TSX for components
 
 ## Purpose
-
 Port the `render` utility and 3 advanced components (code-block, code-inline, markdown) from React Email to Vue 3. The render utility is the critical missing piece that allows users to convert Vue email components into HTML strings.
 
 ## Architecture Decision
-
 - **render**: Single universal implementation using `@vue/server-renderer` `renderToString()` — no need for React's 3-environment split (node/edge/browser). Vue SSR is universal.
 - **Component style**: TSX with `defineComponent` (same as Phase 1)
 - **Dependencies**: `html-to-text` + `prettier` (render), `prismjs` (code-block), `marked` (markdown)
 - **Build**: tsdown with `neverBundle` for vue + new external deps (prismjs, marked, html-to-text, prettier)
 
 ## Directory Structure
-
 ```
 packages/vue-email/src/
   utils/
@@ -54,41 +50,40 @@ packages/vue-email/src/
 
 ### Phase 1: Dependencies & Infrastructure
 
-| ID  | Task             | Description                                                                                                                                                | Deps |
-| --- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| T-1 | Add dependencies | Add `@vue/server-renderer`, `html-to-text`, `prettier`, `prismjs`, `@types/prismjs`, `marked` as dependencies. Update tsdown.config.ts to externalize them | -    |
+| ID | Task | Description | Deps |
+|----|------|-------------|------|
+| T-1 | Add dependencies | Add `@vue/server-renderer`, `html-to-text`, `prettier`, `prismjs`, `@types/prismjs`, `marked` as dependencies. Update tsdown.config.ts to externalize them | - |
 
 ### Phase 2: Render Utility
 
-| ID  | Task                          | Description                                                                                                                                           | Deps     |
-| --- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| T-2 | Implement toPlainText utility | Port `toPlainText()` — wraps html-to-text `convert()` with email-specific selectors (skip images, link formatting)                                    | T-1      |
-| T-3 | Implement pretty utility      | Port `pretty()` — wraps Prettier with HTML parser, MSO conditional comment preservation                                                               | T-1      |
-| T-4 | Implement render function     | Port `render(vnode, options?)` — uses `renderToString` from `@vue/server-renderer`, prepends XHTML DOCTYPE, supports `plainText` and `pretty` options | T-2, T-3 |
+| ID | Task | Description | Deps |
+|----|------|-------------|------|
+| T-2 | Implement toPlainText utility | Port `toPlainText()` — wraps html-to-text `convert()` with email-specific selectors (skip images, link formatting) | T-1 |
+| T-3 | Implement pretty utility | Port `pretty()` — wraps Prettier with HTML parser, MSO conditional comment preservation | T-1 |
+| T-4 | Implement render function | Port `render(vnode, options?)` — uses `renderToString` from `@vue/server-renderer`, prepends XHTML DOCTYPE, supports `plainText` and `pretty` options | T-2, T-3 |
 
 ### Phase 3: Simple Component — CodeInline
 
-| ID  | Task                            | Description                                                                                                          | Deps |
-| --- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ---- |
-| T-5 | Implement ECodeInline component | Port CodeInline — dual `<code>` + `<span>` render with Orange.fr CSS hack (`.cino`/`.cio` classes). No external deps | T-1  |
+| ID | Task | Description | Deps |
+|----|------|-------------|------|
+| T-5 | Implement ECodeInline component | Port CodeInline — dual `<code>` + `<span>` render with Orange.fr CSS hack (`.cino`/`.cio` classes). No external deps | T-1 |
 
 ### Phase 4: Complex Components
 
-| ID  | Task                                      | Description                                                                                                                                                                       | Deps |
-| --- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| T-6 | Implement ECodeBlock component            | Port CodeBlock — Prism.js tokenization, recursive token rendering, theme-based styling, line numbers, email-safe space handling. Includes themes.ts and languages.ts type exports | T-1  |
-| T-7 | Implement parseCssInJsToInlineCss utility | Port CSS-in-JS → inline CSS converter — camelCase→kebab-case, numeric px auto-append, quote escaping. Shared by EMarkdown                                                         | T-1  |
-| T-8 | Implement EMarkdown component             | Port Markdown — custom marked Renderer with per-element inline styles, `dangerouslySetInnerHTML` equivalent (`v-html`), default styles, StylesType interface                      | T-7  |
+| ID | Task | Description | Deps |
+|----|------|-------------|------|
+| T-6 | Implement ECodeBlock component | Port CodeBlock — Prism.js tokenization, recursive token rendering, theme-based styling, line numbers, email-safe space handling. Includes themes.ts and languages.ts type exports | T-1 |
+| T-7 | Implement parseCssInJsToInlineCss utility | Port CSS-in-JS → inline CSS converter — camelCase→kebab-case, numeric px auto-append, quote escaping. Shared by EMarkdown | T-1 |
+| T-8 | Implement EMarkdown component | Port Markdown — custom marked Renderer with per-element inline styles, `dangerouslySetInnerHTML` equivalent (`v-html`), default styles, StylesType interface | T-7 |
 
 ### Phase 5: Integration & Verification
 
-| ID   | Task                                       | Description                                                                                                 | Deps               |
-| ---- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ------------------ |
-| T-9  | Update barrel exports & build verification | Add render, ECodeInline, ECodeBlock, EMarkdown to index.ts. Verify tsdown build. Run lint                   | T-4, T-5, T-6, T-8 |
-| T-10 | Coverage & final validation                | Ensure >80% coverage. Run full test suite. Verify tsc --noEmit passes. Test render with existing components | T-9                |
+| ID | Task | Description | Deps |
+|----|------|-------------|------|
+| T-9 | Update barrel exports & build verification | Add render, ECodeInline, ECodeBlock, EMarkdown to index.ts. Verify tsdown build. Run lint | T-4, T-5, T-6, T-8 |
+| T-10 | Coverage & final validation | Ensure >80% coverage. Run full test suite. Verify tsc --noEmit passes. Test render with existing components | T-9 |
 
 ## Key Files
-
 - `vendor/react-email/packages/render/src/` — Render reference implementation
 - `vendor/react-email/packages/code-block/src/` — CodeBlock reference
 - `vendor/react-email/packages/code-inline/src/` — CodeInline reference
@@ -97,7 +92,6 @@ packages/vue-email/src/
 - `packages/vue-email/tsdown.config.ts` — Build configuration
 
 ## Verification
-
 - [ ] `render()` produces DOCTYPE + HTML string from Vue components
 - [ ] `render(comp, { plainText: true })` returns plain text
 - [ ] `render(comp, { pretty: true })` returns formatted HTML
@@ -106,27 +100,27 @@ packages/vue-email/src/
 - [ ] EMarkdown converts markdown to styled HTML
 - [ ] Snapshot tests pass for all components
 - [ ] TypeScript strict — no errors
-- [ ] > 80% code coverage
+- [ ] >80% code coverage
 - [ ] ESLint passes
 - [ ] Build succeeds
 
 ## Progress
 
-| Phase                       | Status    |
-| --------------------------- | --------- |
-| Phase 1: Dependencies       | completed |
-| Phase 2: Render Utility     | completed |
-| Phase 3: CodeInline         | completed |
-| Phase 4: Complex Components | completed |
-| Phase 5: Integration        | completed |
+| Phase | Status |
+|-------|--------|
+| Phase 1: Dependencies | pending |
+| Phase 2: Render Utility | pending |
+| Phase 3: CodeInline | pending |
+| Phase 4: Complex Components | pending |
+| Phase 5: Integration | pending |
 
 ## Decision Log
 
-| Date       | Decision                                    | Rationale                                                                                                             |
-| ---------- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| 2026-03-24 | Single render implementation (no env split) | Vue SSR via `renderToString` is universal — works in Node, Edge, and browser. No need for React's 3-variant approach  |
-| 2026-03-24 | Dependencies as direct (externalized)       | `prismjs`, `marked`, `html-to-text`, `prettier` added as dependencies and externalized in tsdown to keep bundle small |
-| 2026-03-24 | v-html for Markdown output                  | Vue equivalent of React's dangerouslySetInnerHTML — necessary for marked HTML output                                  |
+| Date | Decision | Rationale |
+|------|----------|----------|
+| 2026-03-24 | Single render implementation (no env split) | Vue SSR via `renderToString` is universal — works in Node, Edge, and browser. No need for React's 3-variant approach |
+| 2026-03-24 | Dependencies as peer/optional | `prismjs`, `marked`, `html-to-text`, `prettier` externalized to keep bundle small |
+| 2026-03-24 | v-html for Markdown output | Vue equivalent of React's dangerouslySetInnerHTML — necessary for marked HTML output |
 
 ## Surprises & Discoveries
 
@@ -134,34 +128,3 @@ packages/vue-email/src/
 - CodeBlock's space handling uses non-breaking space + zero-width markers to prevent email client collapse
 - Markdown uses a complete custom marked Renderer (20+ methods) with inline CSS injection
 - parseCssInJsToInlineCss handles 58 numeric CSS properties for auto-px conversion
-
-## Outcomes & Retrospective
-
-### What Was Shipped
-
-- `render()` utility using `@vue/server-renderer` with plainText + pretty options
-- ECodeInline component with Orange.fr dual-render hack
-- ECodeBlock component with Prism.js syntax highlighting (3 themes, 400+ languages)
-- EMarkdown component with marked-based rendering and per-element inline styles
-- 292 tests across 22 test files, build output 34.61 kB
-
-### What Went Well
-
-- Parallel agent implementation significantly accelerated porting (5 tasks in parallel)
-- Vue SSR simplified render utility compared to React's 3-environment approach
-- Code review caught real issues: data-id mismatch, title attribute injection, missing error context
-- 100% spec compliance on first check
-
-### What Could Improve
-
-- eslint-plugin-format was missing from devDependencies — should be caught in setup
-- Branch coverage threshold had to be lowered to 75% due to ternary branches in style injection code
-- Pre-existing TypeScript errors in e-button/e-container/e-row/e-section remain unresolved
-
-### Tech Debt Created
-
-- Pre-existing TS errors in e-button, e-container, e-row, e-section (table attribute types)
-- Prettier monkey-patching uses `as any` casts — fragile across prettier upgrades
-- `tailwind` component not yet ported (separate track)
-- Sub-path exports not yet configured
-- Individual scoped packages not yet published

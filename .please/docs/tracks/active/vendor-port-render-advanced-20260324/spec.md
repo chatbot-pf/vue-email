@@ -19,7 +19,7 @@ Continuation of `vendor-package-port-20260324` which completed the 15 core compo
 - [ ] FR-5: Port `ECodeInline` component — inline code with Orange.fr compatibility hack
 - [ ] FR-6: Port `ECodeBlock` component — syntax-highlighted code block using Prism.js
 - [ ] FR-7: Port `EMarkdown` component — renders Markdown to HTML via `marked`, with customizable styles per element
-- [ ] FR-8: All new components exported from `@mail-please/vue-email` barrel export (sub-path exports are out of scope — separate track)
+- [ ] FR-8: All new components exported from `@mail-please/vue-email` barrel and sub-path exports
 
 ### Non-functional Requirements
 

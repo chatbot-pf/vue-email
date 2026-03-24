@@ -1,0 +1,29 @@
+.please/docs/tracks/active/vendor-port-render-advanced-20260324/spec.md
+  bf09aa2a31447d2f 1-56
+.please/docs/tracks/index.md
+  bf09aa2a31447d2f 10-11
+.please/docs/tracks/active/vendor-port-render-advanced-20260324/metadata.json
+  bf09aa2a31447d2f 1-9
+.please/docs/tracks/active/vendor-port-render-advanced-20260324/plan.md
+  bf09aa2a31447d2f 1-130
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "94b3ce5a7a1bc9b0ed9ca9d452d15f210e16a618",
+  "prompts": {
+    "bf09aa2a31447d2f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8982618a-cb1d-48d5-9512-d69c8f858a3f",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 199,
+      "total_deletions": 3,
+      "accepted_lines": 197,
+      "overriden_lines": 0
+    }
+  }
+}

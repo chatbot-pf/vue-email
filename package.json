@@ -4,12 +4,15 @@
   "private": true,
   "description": "Vue port of react-email. High-quality, unstyled components for creating emails using Vue.",
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "build": "unbuild",
-    "typecheck": "tsc --noEmit",
+    "build": "bun --filter '@mail-please/*' run build",
+    "typecheck": "bun --filter '@mail-please/*' run typecheck",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky"

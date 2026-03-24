@@ -6,11 +6,11 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'happy-dom',
-    include: ['src/**/*.spec.ts'],
+    include: ['packages/*/src/**/*.spec.ts'],
     coverage: {
       provider: 'v8',
-      include: ['src/**/*.tsx', 'src/**/*.ts'],
-      exclude: ['src/**/*.spec.ts', 'src/index.ts'],
+      include: ['packages/*/src/**/*.tsx', 'packages/*/src/**/*.ts'],
+      exclude: ['packages/*/src/**/*.spec.ts', 'packages/*/src/index.ts'],
       thresholds: {
         statements: 80,
         branches: 80,

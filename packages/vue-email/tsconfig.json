@@ -6,16 +6,21 @@
     "strict": true,
     "jsx": "preserve",
     "jsxImportSource": "vue",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": ["vitest/globals"]
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["vitest/globals"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "references": [
-    { "path": "packages/vue-email" }
-  ],
-  "include": [],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist", "vendor"]
 }

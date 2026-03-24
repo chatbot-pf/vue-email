@@ -1,0 +1,53 @@
+.claude/settings.json
+  63054ab7239f0f2b 2,14-20,44-49
+.gitignore
+  63054ab7239f0f2b 216-218
+.please/docs/knowledge/product.md
+  63054ab7239f0f2b 1-26
+.please/docs/knowledge/workflow.md
+  63054ab7239f0f2b 1-59
+.please/config.yml
+  63054ab7239f0f2b 1-11
+.please/docs/decisions/index.md
+  63054ab7239f0f2b 1-6
+.please/docs/tracks/active/core-email-components-20260324/spec.md
+  63054ab7239f0f2b 1-47
+.please/docs/knowledge/tech-stack.md
+  63054ab7239f0f2b 1-44
+.please/docs/tracks/active/core-email-components-20260324/metadata.json
+  63054ab7239f0f2b 1-9
+.please/INDEX.md
+  63054ab7239f0f2b 1-35
+.please/docs/knowledge/product-guidelines.md
+  63054ab7239f0f2b 1-28
+.please/docs/tracks/index.md
+  63054ab7239f0f2b 1-18
+.please/docs/tracks/tech-debt-tracker.md
+  63054ab7239f0f2b 1-13
+.please/docs/product-specs/index.md
+  63054ab7239f0f2b 1-6
+README.md
+  63054ab7239f0f2b 89-100
+.please/docs/tracks/active/core-email-components-20260324/plan.md
+  63054ab7239f0f2b 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.17",
+  "base_commit_sha": "efa236a3080a494d9c10c1019074d7bd5ac540a5",
+  "prompts": {
+    "63054ab7239f0f2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e179b919-b6f7-4406-bea0-d0f430942272",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 354,
+      "total_deletions": 16,
+      "accepted_lines": 339,
+      "overriden_lines": 0
+    }
+  }
+}

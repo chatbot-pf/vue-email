@@ -1,0 +1,23 @@
+.please/docs/tracks/active/vendor-port-preview-server-20260326/plan.md
+  887659fc0861bf3f 44-45,49-52,56-60,64-65,69-73,77-78,82-86,90-91
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "30c0dadb5d1a2096535556bc709e6c5b44c5f3a7",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 25,
+      "total_deletions": 25,
+      "accepted_lines": 28,
+      "overriden_lines": 0
+    }
+  }
+}

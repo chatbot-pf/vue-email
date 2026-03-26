@@ -1,5 +1,13 @@
 <script setup lang="ts">
+const route = useRoute()
 const sidebarOpen = ref(true)
+
+const currentSlug = computed(() => {
+  const params = route.params.slug
+  if (!params)
+    return undefined
+  return Array.isArray(params) ? params.join('/') : params
+})
 
 function toggleSidebar() {
   sidebarOpen.value = !sidebarOpen.value
@@ -40,9 +48,9 @@ provide('toggleSidebar', toggleSidebar)
             <span class="text-white font-semibold text-sm">mail-please</span>
           </div>
 
-          <!-- Sidebar slot populated by pages via layout -->
-          <div class="relative grow h-full overflow-y-auto overflow-x-hidden">
-            <slot name="sidebar" />
+          <!-- File tree sidebar -->
+          <div class="relative grow h-full overflow-y-auto overflow-x-hidden px-4 pb-3">
+            <Sidebar :current-slug="currentSlug" />
           </div>
         </aside>
 

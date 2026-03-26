@@ -1,0 +1,39 @@
+packages/cli/preview-server/server/api/compatibility.post.ts
+  887659fc0861bf3f 1-16,20-162
+packages/cli/preview-server/app/components/toolbar/SendEmail.vue
+  887659fc0861bf3f 1-110
+packages/cli/preview-server/server/api/resend-status.get.ts
+  887659fc0861bf3f 1-8
+packages/cli/preview-server/app/components/toolbar/Compatibility.vue
+  887659fc0861bf3f 1-137
+packages/cli/preview-server/server/api/send-email.post.ts
+  887659fc0861bf3f 1-36
+packages/cli/preview-server/app/components/toolbar/SpamCheck.vue
+  887659fc0861bf3f 1-168,170-193,195-220
+packages/cli/preview-server/app/components/toolbar/Linter.vue
+  887659fc0861bf3f 1-124,126-187
+packages/cli/preview-server/app/components/Toolbar.vue
+  887659fc0861bf3f 1-2,4,6-91,93-123,125-134,136-170
+packages/cli/preview-server/server/api/lint.post.ts
+  887659fc0861bf3f 2-11,15-26,28-39,42-46,48-202,204-234
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "abd8bf61506b2b8a5f079447691ac79ae23ba69f",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 4,
+      "total_deletions": 4,
+      "accepted_lines": 1247,
+      "overriden_lines": 17
+    }
+  }
+}

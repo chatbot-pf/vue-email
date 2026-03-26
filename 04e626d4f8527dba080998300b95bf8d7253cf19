@@ -1,0 +1,25 @@
+packages/cli/src/utils/discovery.ts
+  887659fc0861bf3f 14-17,42-46
+packages/cli/src/commands/resend.ts
+  887659fc0861bf3f 1-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "04e626d4f8527dba080998300b95bf8d7253cf19",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 46,
+      "total_deletions": 3,
+      "accepted_lines": 55,
+      "overriden_lines": 0
+    }
+  }
+}

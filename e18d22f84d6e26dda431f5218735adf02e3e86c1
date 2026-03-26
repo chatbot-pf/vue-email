@@ -1,0 +1,27 @@
+packages/cli/preview-server/app/components/toolbar/Compatibility.vue
+  887659fc0861bf3f 14,39-40,42,59
+packages/cli/src/utils/discovery.ts
+  887659fc0861bf3f 68-82
+packages/cli/src/commands/start.ts
+  887659fc0861bf3f 35-38,42-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "e18d22f84d6e26dda431f5218735adf02e3e86c1",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 29,
+      "total_deletions": 11,
+      "accepted_lines": 29,
+      "overriden_lines": 0
+    }
+  }
+}

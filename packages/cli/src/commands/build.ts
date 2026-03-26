@@ -55,12 +55,15 @@ export async function build(args: BuildArgs): Promise<void> {
   const nuxt = await loadNuxt({
     cwd: config.nuxtRootDir,
     dev: false,
+    ready: false,
     overrides: {
       nitro: {
         output: { dir: outputDir },
       },
     },
   })
+
+  await nuxt.ready()
 
   try {
     await buildNuxt(nuxt)
@@ -69,5 +72,8 @@ export async function build(args: BuildArgs): Promise<void> {
   catch (err) {
     spinner.fail(`Build failed: ${err}`)
     process.exit(1)
+  }
+  finally {
+    await nuxt.close()
   }
 }

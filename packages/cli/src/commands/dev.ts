@@ -1,4 +1,3 @@
-import type http from 'node:http'
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
@@ -35,7 +34,7 @@ export function buildDevConfig(args: DevArgs): DevConfig {
 /**
  * Start the development server:
  * 1. Launch Nuxt preview-server programmatically via @nuxt/kit
- * 2. Attach Socket.io hot-reload on the same HTTP server
+ * 2. Use listhen to create the HTTP server and attach Socket.io for hot-reload
  * 3. Watch emailsDir for changes
  */
 export async function dev(args: DevArgs): Promise<void> {
@@ -53,17 +52,19 @@ export async function dev(args: DevArgs): Promise<void> {
   process.env.MAIL_PLEASE_ROOT = process.cwd()
   process.env.MAIL_PLEASE_RESEND_API_KEY = conf.get('resendApiKey') ?? ''
 
-  // Dynamically import @nuxt/kit so the CLI can be installed without requiring
-  // a full Nuxt installation at the workspace root.
   const { loadNuxt, buildNuxt } = await import('@nuxt/kit')
+  const { listen } = await import('listhen')
 
   const nuxt = await loadNuxt({
     cwd: config.nuxtRootDir,
     dev: true,
+    ready: false,
     overrides: {
       devServer: { port: config.port },
     },
   })
+
+  await nuxt.ready()
 
   try {
     await buildNuxt(nuxt)
@@ -73,14 +74,20 @@ export async function dev(args: DevArgs): Promise<void> {
     process.exit(1)
   }
 
-  // After Nuxt is listening, get the underlying http.Server to attach Socket.io
-  const httpServer: http.Server = (nuxt as any).server?.httpServer
-  if (httpServer) {
-    await setupHotReloading(httpServer, config.emailsDir)
-  }
-  else {
-    console.warn('Could not attach hot-reload: Nuxt HTTP server not accessible')
-  }
+  // Create HTTP listener via listhen so we can attach Socket.io
+  const listener = await listen(
+    (nuxt as any).server?.app ?? ((req: any, res: any) => { res.end(404) }),
+    { port: config.port, showURL: false },
+  )
 
-  spinner.succeed(`Preview server running at http://localhost:${config.port}`)
+  await setupHotReloading(listener.server, config.emailsDir)
+
+  spinner.succeed(`Preview server running at ${listener.url}`)
+
+  // Keep process alive
+  process.on('SIGINT', async () => {
+    await listener.close()
+    await nuxt.close()
+    process.exit(0)
+  })
 }

@@ -1,8 +1,15 @@
+import path from 'node:path'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [vueJsx()],
+  resolve: {
+    alias: {
+      // Resolve workspace package from source so tests don't require a build step
+      '@mail-please/vue-email': path.resolve('./packages/vue-email/src/index.ts'),
+    },
+  },
   test: {
     globals: true,
     environment: 'happy-dom',

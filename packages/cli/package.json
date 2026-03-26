@@ -1,0 +1,67 @@
+{
+  "name": "@mail-please/cli",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "CLI tool and preview server for Vue email templates",
+  "author": "Minsu Lee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chatbot-pf/vue-email.git",
+    "directory": "packages/cli"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "mail-please": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "preview-server"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "dev:preview": "nuxi dev preview-server"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "dependencies": {
+    "@mail-please/vue-email": "workspace:*",
+    "@nuxt/kit": "^4.4.0",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vitejs/plugin-vue-jsx": "^5.1.5",
+    "chokidar": "^4.0.3",
+    "commander": "^13.1.0",
+    "conf": "^15.0.2",
+    "debounce": "^2.0.0",
+    "esbuild": "^0.25.0",
+    "glob": "^13.0.6",
+    "listhen": "^1.9.0",
+    "mime-types": "^3.0.0",
+    "ora": "^8.2.0",
+    "prompts": "^2.4.2",
+    "resend": "^4.2.0",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
+    "vite": "^8.0.3"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.27.0",
+    "@babel/traverse": "^7.27.0",
+    "@nuxt/ui": "^4.6.0",
+    "@types/babel__traverse": "^7.20.7",
+    "@types/debounce": "^1.2.4",
+    "@types/mime-types": "^3.0.0",
+    "@types/prompts": "^2.4.9",
+    "nuxt": "^4.4.0",
+    "shiki": "^3.5.0",
+    "tailwindcss": "^4.2.2",
+    "vue": "^3.5.30"
+  }
+}

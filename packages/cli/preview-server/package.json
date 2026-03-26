@@ -1,0 +1,10 @@
+{
+  "name": "@mail-please/preview-server",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "preview": "nuxi preview"
+  }
+}

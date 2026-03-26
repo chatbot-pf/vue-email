@@ -1,9 +1,9 @@
 {
   "track_id": "vendor-port-preview-server-20260326",
   "type": "feature",
-  "status": "planned",
+  "status": "in_progress",
   "created_at": "2026-03-26T14:06:36+09:00",
-  "updated_at": "2026-03-26T14:30:00+09:00",
+  "updated_at": "2026-03-26T14:35:00+09:00",
   "issue": "#5",
   "pr": ""
 }

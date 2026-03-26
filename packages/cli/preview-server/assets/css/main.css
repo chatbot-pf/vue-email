@@ -1,2 +1,49 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@theme {
+  --color-cyan-1: #0091f70a;
+  --color-cyan-2: #02a7f211;
+  --color-cyan-3: #00befd28;
+  --color-cyan-4: #00baff3b;
+  --color-cyan-5: #00befd4d;
+  --color-cyan-6: #00c7fd5e;
+  --color-cyan-7: #14cdff75;
+  --color-cyan-8: #11cfff95;
+  --color-cyan-9: #00cfffc3;
+  --color-cyan-10: #28d6ffcd;
+  --color-cyan-11: #52e1fee5;
+  --color-cyan-12: #bbf3fef7;
+
+  --color-slate-1: #00000000;
+  --color-slate-2: #d8f4f609;
+  --color-slate-3: #ddeaf814;
+  --color-slate-4: #d3edf81d;
+  --color-slate-5: #d9edfe25;
+  --color-slate-6: #d6ebfd30;
+  --color-slate-7: #d9edff40;
+  --color-slate-8: #d9edff5d;
+  --color-slate-9: #dfebfd6d;
+  --color-slate-10: #e5edfd7b;
+  --color-slate-11: #f1f7feb5;
+  --color-slate-12: #fcfdffef;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+html {
+  color-scheme: dark;
+}

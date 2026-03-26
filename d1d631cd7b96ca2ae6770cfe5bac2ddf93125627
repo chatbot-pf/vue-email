@@ -1,0 +1,27 @@
+packages/cli/src/utils/hot-reloading/dependency-graph.ts
+  887659fc0861bf3f 2-64,66-121,123-279
+packages/cli/src/utils/hot-reloading/dependency-graph.spec.ts
+  887659fc0861bf3f 1-2,4-106
+packages/cli/preview-server/app/components/PreviewControls.vue
+  887659fc0861bf3f 1-140
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "d1d631cd7b96ca2ae6770cfe5bac2ddf93125627",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 965,
+      "total_deletions": 91,
+      "accepted_lines": 1753,
+      "overriden_lines": 2
+    }
+  }
+}

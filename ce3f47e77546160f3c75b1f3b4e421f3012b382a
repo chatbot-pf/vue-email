@@ -1,0 +1,25 @@
+packages/cli/src/commands/build.spec.ts
+  887659fc0861bf3f 1-20
+packages/cli/src/commands/build.ts
+  887659fc0861bf3f 1-73
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "ce3f47e77546160f3c75b1f3b4e421f3012b382a",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 246,
+      "total_deletions": 6,
+      "accepted_lines": 245,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -1,0 +1,25 @@
+packages/cli/src/commands/dev.ts
+  887659fc0861bf3f 37,56,61,67-68,77-81,83-92
+packages/cli/src/commands/build.ts
+  887659fc0861bf3f 58,66-67,76-77
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "0c59a7c4f4b0fad96b57b5548a5993e93c0a43ce",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 26,
+      "total_deletions": 13,
+      "accepted_lines": 29,
+      "overriden_lines": 0
+    }
+  }
+}

@@ -71,16 +71,16 @@ packages/
 
 ### Technology Stack
 
-| Layer | Technology | Notes |
-|-------|-----------|-------|
-| CLI framework | Commander.js | CLI argument parsing |
-| Preview UI | Nuxt 4 | Vue meta-framework |
-| UI Components | Nuxt UI 4 | Accessible component library |
-| Hot reload | Socket.io | Real-time file change broadcasting |
-| File watching | chokidar | File system monitoring |
-| Template bundling | esbuild | Fast template compilation |
-| Code highlighting | Shiki | Syntax highlighting |
-| Email sending | Resend SDK | Test email delivery |
+| Layer             | Technology   | Notes                              |
+| ----------------- | ------------ | ---------------------------------- |
+| CLI framework     | Commander.js | CLI argument parsing               |
+| Preview UI        | Nuxt 4       | Vue meta-framework                 |
+| UI Components     | Nuxt UI 4    | Accessible component library       |
+| Hot reload        | Socket.io    | Real-time file change broadcasting |
+| File watching     | chokidar     | File system monitoring             |
+| Template bundling | esbuild      | Fast template compilation          |
+| Code highlighting | Shiki        | Syntax highlighting                |
+| Email sending     | Resend SDK   | Test email delivery                |
 
 ## Acceptance Criteria
 

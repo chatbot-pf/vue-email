@@ -65,11 +65,21 @@ export async function getEmailsDirectoryMetadata(absolutePathToEmailsDirectory: 
     withFileTypes: true,
   })
 
-  const isEmailPredicates = await Promise.all(
-    dirents.map(dirent =>
-      isFileAnEmail(path.join(absolutePathToEmailsDirectory, dirent.name)),
-    ),
-  )
+  // Use bounded concurrency to avoid EMFILE on large directories while
+  // still being faster than fully sequential evaluation.
+  const CONCURRENCY = 16
+  const isEmailPredicates: boolean[] = Array.from({ length: dirents.length })
+  for (let i = 0; i < dirents.length; i += CONCURRENCY) {
+    const chunk = dirents.slice(i, i + CONCURRENCY)
+    const results = await Promise.all(
+      chunk.map(dirent =>
+        isFileAnEmail(path.join(absolutePathToEmailsDirectory, dirent.name)),
+      ),
+    )
+    for (let j = 0; j < results.length; j++) {
+      isEmailPredicates[i + j] = results[j]!
+    }
+  }
 
   const emailFilenames = dirents
     .filter((_, i) => isEmailPredicates[i])

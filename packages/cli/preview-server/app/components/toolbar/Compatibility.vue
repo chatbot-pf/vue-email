@@ -11,6 +11,7 @@ const props = defineProps<{
 const CACHE_KEY = computed(() => `compatibility-${props.emailSlug.replaceAll('/', '-')}`)
 
 const loading = ref(false)
+const fetching = ref(false)
 const issues = ref<CompatibilityIssue[] | null>(null)
 
 const toast = useToast()
@@ -35,8 +36,10 @@ function saveCache(data: CompatibilityIssue[]) {
 }
 
 async function runCheck(silent = false) {
-  if (loading.value)
+  // Use a separate in-flight flag so silent refreshes are also properly serialised
+  if (fetching.value)
     return
+  fetching.value = true
   if (!silent)
     loading.value = true
 
@@ -53,6 +56,7 @@ async function runCheck(silent = false) {
     toast.add({ title: msg, color: 'error' })
   }
   finally {
+    fetching.value = false
     loading.value = false
   }
 }

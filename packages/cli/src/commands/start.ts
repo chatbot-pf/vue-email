@@ -32,13 +32,17 @@ export async function start(): Promise<void> {
     env: { ...process.env },
   })
 
-  process.on('SIGINT', () => child.kill('SIGINT'))
-  process.on('SIGTERM', () => child.kill('SIGTERM'))
+  const onSigint = () => child.kill('SIGINT')
+  const onSigterm = () => child.kill('SIGTERM')
+  process.on('SIGINT', onSigint)
+  process.on('SIGTERM', onSigterm)
 
   child.on('exit', (code, signal) => {
     if (signal) {
-      // Remove listeners before re-raising to prevent a signal-handling loop
-      process.removeAllListeners(signal)
+      // Remove only our own listeners before re-raising to avoid a loop
+      // without disrupting other signal handlers in the same process.
+      process.removeListener('SIGINT', onSigint)
+      process.removeListener('SIGTERM', onSigterm)
       process.kill(process.pid, signal)
     }
     else {

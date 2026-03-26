@@ -24,6 +24,19 @@
 | commitlint                | Conventional commit enforcement |
 | mise                      | Task runner & version manager   |
 
+## CLI & Preview Server (`@mail-please/cli`)
+
+| Layer             | Technology   | Notes                              |
+| ----------------- | ------------ | ---------------------------------- |
+| CLI framework     | Commander.js | CLI argument parsing               |
+| Preview UI        | Nuxt 4       | Vue meta-framework                 |
+| UI Components     | Nuxt UI 4    | Accessible component library       |
+| Hot reload        | Socket.io    | Real-time file change broadcasting |
+| File watching     | chokidar     | File system monitoring             |
+| Template bundling | Vite SSR     | .vue/.tsx template compilation     |
+| Code highlighting | Shiki        | Syntax highlighting                |
+| Email sending     | Resend SDK   | Test email delivery                |
+
 ## Testing
 
 - **Test Runner**: Vitest (`vitest`)

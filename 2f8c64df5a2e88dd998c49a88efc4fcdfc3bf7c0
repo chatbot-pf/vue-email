@@ -1,0 +1,23 @@
+packages/cli/preview-server/app/composables/useHotReload.ts
+  887659fc0861bf3f 1-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "2f8c64df5a2e88dd998c49a88efc4fcdfc3bf7c0",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 163,
+      "total_deletions": 0,
+      "accepted_lines": 444,
+      "overriden_lines": 3
+    }
+  }
+}

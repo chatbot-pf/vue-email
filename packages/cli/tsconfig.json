@@ -1,22 +1,21 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "jsx": "preserve",
-    "jsxImportSource": "vue",
+    "rootDir": "src",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "types": ["vitest/globals"],
     "strict": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "sourceMap": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "skipLibCheck": true
   },
-  "references": [
-    { "path": "packages/vue-email" },
-    { "path": "packages/cli" }
-  ],
-  "include": [],
-  "exclude": ["node_modules", "dist", "vendor"]
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "preview-server"]
 }

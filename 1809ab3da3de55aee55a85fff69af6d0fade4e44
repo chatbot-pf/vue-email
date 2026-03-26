@@ -1,0 +1,33 @@
+packages/cli/src/commands/start.spec.ts
+  887659fc0861bf3f 24,42
+packages/cli/src/commands/start.ts
+  887659fc0861bf3f 6,10
+packages/cli/preview-server/server/api/send-email.post.ts
+  887659fc0861bf3f 11-17
+packages/cli/preview-server/server/api/render.post.ts
+  887659fc0861bf3f 103
+packages/cli/src/commands/export.spec.ts
+  887659fc0861bf3f 28-36
+packages/cli/src/commands/export.ts
+  887659fc0861bf3f 5,39-42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "1809ab3da3de55aee55a85fff69af6d0fade4e44",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 26,
+      "total_deletions": 9,
+      "accepted_lines": 27,
+      "overriden_lines": 0
+    }
+  }
+}

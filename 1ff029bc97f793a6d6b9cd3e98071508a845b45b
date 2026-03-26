@@ -1,0 +1,61 @@
+packages/cli/preview-server/app/pages/preview/[...slug].vue
+  887659fc0861bf3f 17-24,30,55,61-63,67-68,73-74
+packages/cli/preview-server/app/components/toolbar/Linter.vue
+  887659fc0861bf3f 57,60
+packages/cli/src/commands/build.ts
+  887659fc0861bf3f 74
+packages/cli/preview-server/server/api/lint.post.ts
+  887659fc0861bf3f 78-81,145,165,211
+packages/cli/src/commands/export.ts
+  887659fc0861bf3f 65-69
+packages/cli/preview-server/app/app.vue
+  887659fc0861bf3f 42
+packages/cli/src/commands/start.ts
+  887659fc0861bf3f 38-45
+packages/cli/src/utils/hot-reloading/dependency-graph.ts
+  887659fc0861bf3f 122,124,126-133,181,238,246-248,250-251,268
+packages/cli/package.json
+  887659fc0861bf3f 20
+packages/cli/preview-server/app/components/toolbar/Compatibility.vue
+  887659fc0861bf3f 62,65
+packages/cli/src/utils/discovery.ts
+  887659fc0861bf3f 27-34,36-43,68-73
+packages/cli/preview-server/app/components/EmailFrame.vue
+  887659fc0861bf3f 47,340
+packages/cli/preview-server/server/api/compatibility.post.ts
+  887659fc0861bf3f 84-85,92-94,102-109,112-128,133-137
+packages/cli/preview-server/app/components/PreviewControls.vue
+  887659fc0861bf3f 65
+packages/cli/preview-server/app/components/CodeView.vue
+  887659fc0861bf3f 55,63,69-71,75-76,82-83
+packages/cli/preview-server/app/components/toolbar/SpamCheck.vue
+  887659fc0861bf3f 88
+packages/cli/src/index.ts
+  887659fc0861bf3f 43-47,50
+packages/cli/preview-server/server/api/render.post.ts
+  887659fc0861bf3f 64-67
+packages/cli/src/utils/hot-reloading/setup-hot-reloading.ts
+  887659fc0861bf3f 41-45,74,82-83,99-102
+packages/cli/src/commands/resend.ts
+  887659fc0861bf3f 1-2,12-24,27,36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "1ff029bc97f793a6d6b9cd3e98071508a845b45b",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 174,
+      "total_deletions": 74,
+      "accepted_lines": 173,
+      "overriden_lines": 0
+    }
+  }
+}

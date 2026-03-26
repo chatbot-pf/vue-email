@@ -10,7 +10,7 @@
 | [vendor-package-port-20260324](active/vendor-package-port-20260324/)                 | Vendor Package Port — Core Email Components        | feature | —     | 2026-03-24 | completed   |
 | [vendor-port-render-advanced-20260324](active/vendor-port-render-advanced-20260324/) | Vendor Port Phase 2 — Render & Advanced Components | feature | —     | 2026-03-24 | completed   |
 | [vendor-port-tailwind-20260324](active/vendor-port-tailwind-20260324/)               | Vendor Port Phase 3 — Tailwind CSS Integration     | feature | —     | 2026-03-24 | in_progress |
-| [vendor-port-preview-server-20260326](active/vendor-port-preview-server-20260326/) | Preview Dev Server — Full Port                     | feature | #5    | 2026-03-26 | in_progress |
+| [vendor-port-preview-server-20260326](active/vendor-port-preview-server-20260326/)   | Preview Dev Server — Full Port                     | feature | #5    | 2026-03-26 | in_progress |
 
 ## Recently Completed
 

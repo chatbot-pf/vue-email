@@ -81,17 +81,17 @@ function extractHtmlElements(html: string): Set<string> {
 }
 
 const RE_STYLE_ATTR = /style="([^"]*)"/gi
+const RE_STYLE_TAG = /<style(?:\s[^>]*)?>([\s\S]*?)<\/style>/gi
+const RE_CSS_RULE_BODY = /\{([^}]*)\}/g
 const RE_HTML_TITLE_TAG = /<([^>]*)> element/
 const RE_CSS_PROP_TITLE = /^([a-z-]+)/i
 const RE_KEYWORD_SPLIT = /\s*,\s*/
 
 function extractCssProperties(html: string): Set<string> {
   const properties = new Set<string>()
-  let match: RegExpExecArray | null
-  RE_STYLE_ATTR.lastIndex = 0
-  match = RE_STYLE_ATTR.exec(html)
-  while (match !== null) {
-    for (const decl of match[1]!.split(';')) {
+
+  function extractFromDeclarationBlock(declarations: string) {
+    for (const decl of declarations.split(';')) {
       const colonIdx = decl.indexOf(':')
       if (colonIdx > -1) {
         const prop = decl.slice(0, colonIdx).trim().toLowerCase()
@@ -99,13 +99,42 @@ function extractCssProperties(html: string): Set<string> {
           properties.add(prop)
       }
     }
+  }
+
+  // Parse inline style attributes
+  let match: RegExpExecArray | null
+  RE_STYLE_ATTR.lastIndex = 0
+  match = RE_STYLE_ATTR.exec(html)
+  while (match !== null) {
+    extractFromDeclarationBlock(match[1]!)
     match = RE_STYLE_ATTR.exec(html)
   }
+
+  // Parse <style> tag contents
+  RE_STYLE_TAG.lastIndex = 0
+  let styleMatch: RegExpExecArray | null
+  styleMatch = RE_STYLE_TAG.exec(html)
+  while (styleMatch !== null) {
+    const cssText = styleMatch[1]!
+    RE_CSS_RULE_BODY.lastIndex = 0
+    let ruleMatch: RegExpExecArray | null
+    ruleMatch = RE_CSS_RULE_BODY.exec(cssText)
+    while (ruleMatch !== null) {
+      extractFromDeclarationBlock(ruleMatch[1]!)
+      ruleMatch = RE_CSS_RULE_BODY.exec(cssText)
+    }
+    styleMatch = RE_STYLE_TAG.exec(html)
+  }
+
   return properties
 }
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<{ html: string }>(event)
+  const body = await readBody<{ html?: string }>(event)
+
+  if (!body?.html) {
+    throw createError({ statusCode: 400, message: 'Missing html parameter' })
+  }
 
   const supportEntries = await getSupportEntries()
   if (supportEntries.length === 0) {

@@ -54,11 +54,10 @@ async function runLint() {
 onMounted(() => {
   const cached = loadCache()
   if (cached) {
+    // Show cached results immediately, then refresh against current HTML
     rows.value = cached
   }
-  else {
-    runLint()
-  }
+  runLint()
 })
 
 watch(

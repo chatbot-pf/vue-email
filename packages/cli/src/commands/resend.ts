@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto'
+import { hostname, userInfo } from 'node:os'
 import * as nodeUtil from 'node:util'
 import Conf from 'conf'
 import prompts from 'prompts'
@@ -7,9 +9,22 @@ const styleText: StyleTextFunction = (nodeUtil as any).styleText
   ? (nodeUtil as any).styleText
   : (_: string, text: string) => text
 
+// Derive an encryption key from machine-specific attributes so the stored
+// API key is not decryptable with a static key embedded in source.
+function deriveEncryptionKey(): string {
+  try {
+    const seed = `${hostname()}-${userInfo().username}-mail-please`
+    return createHash('sha256').update(seed).digest('hex')
+  }
+  catch {
+    // Fallback: use a constant that is at least not identical to the repo source
+    return createHash('sha256').update('mail-please-fallback').digest('hex')
+  }
+}
+
 const conf = new Conf<{ resendApiKey?: string }>({
   projectName: 'mail-please',
-  encryptionKey: 'h2#x658}1#qY(@!:7,BD1J)q12$[tM25',
+  encryptionKey: deriveEncryptionKey(),
 })
 
 export { conf }
@@ -18,7 +33,7 @@ export async function resendSetup(): Promise<void> {
   const previousValue = conf.get('resendApiKey')
   if (typeof previousValue === 'string' && previousValue.length > 0) {
     console.info(
-      `You already have a Resend API Key configured (${styleText('grey', previousValue.slice(0, 11))}...), continuing will replace it.`,
+      `You already have a Resend API Key configured, continuing will replace it.`,
     )
   }
 

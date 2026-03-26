@@ -35,7 +35,13 @@ export async function start(): Promise<void> {
   process.on('SIGINT', () => child.kill('SIGINT'))
   process.on('SIGTERM', () => child.kill('SIGTERM'))
 
-  child.on('exit', (code) => {
-    process.exit(code ?? 0)
+  child.on('exit', (code, signal) => {
+    if (signal) {
+      // Re-raise the signal so the parent process exits with the correct signal
+      process.kill(process.pid, signal)
+    }
+    else {
+      process.exit(code ?? 0)
+    }
   })
 }

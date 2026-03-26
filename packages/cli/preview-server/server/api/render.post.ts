@@ -61,6 +61,10 @@ export default defineEventHandler(async (event): Promise<RenderResult | RenderEr
   ]
 
   for (const candidate of candidates) {
+    // Guard against path traversal: candidate must stay within emailsDir
+    const rel = path.relative(emailsDir, candidate)
+    if (rel.startsWith('..') || path.isAbsolute(rel))
+      continue
     if (fs.existsSync(candidate)) {
       absolutePath = candidate
       break

@@ -44,7 +44,7 @@ const NAMED_COLORS: Record<string, string> = {
 
 // Matches hex colors (#rgb, #rgba, #rrggbb, #rrggbbaa) and functional colors
 const RE_COLOR = /#[0-9a-f]{8}|#[0-9a-f]{6}|#[0-9a-f]{4}|#[0-9a-f]{3}|(rgb|rgba|hsl|hsv|oklab|oklch|lab|lch|hwb)\s*\([^)]*\)/gi
-const NAMED_COLORS_REGEX = new RegExp(Object.keys(NAMED_COLORS).join('|'), 'gi')
+const NAMED_COLORS_REGEX = new RegExp(`\\b(${Object.keys(NAMED_COLORS).join('|')})\\b`, 'gi')
 const RE_HEX_COLOR = /^#([0-9a-f]{3,8})$/
 const RE_RGB_COLOR = /^rgba?\(([^)]+)\)$/
 
@@ -337,6 +337,7 @@ watch(
     :height="height"
     :title="title"
     :class="props.class"
+    sandbox="allow-same-origin"
     style="color-scheme: auto"
     @load="handleLoad"
   />

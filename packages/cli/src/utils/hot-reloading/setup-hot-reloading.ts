@@ -38,11 +38,11 @@ export async function setupHotReloading(
   let changes: HotReloadChange[] = []
 
   const flush = debounce(() => {
-    const toSend = changes.filter(change =>
-      path
-        .resolve(absoluteEmailsDir, change.filename)
-        .startsWith(absoluteEmailsDir),
-    )
+    const toSend = changes.filter((change) => {
+      const resolved = path.resolve(absoluteEmailsDir, change.filename)
+      const relative = path.relative(absoluteEmailsDir, resolved)
+      return relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative))
+    })
     for (const client of clients) {
       client.emit('reload', toSend)
     }
@@ -71,7 +71,7 @@ export async function setupHotReloading(
     await watcher.close()
   }
   process.on('SIGINT', exit)
-  process.on('uncaughtException', exit)
+  process.on('uncaughtExceptionMonitor', exit)
 
   watcher.on('all', async (event, relPath) => {
     if (!relPath)
@@ -79,7 +79,8 @@ export async function setupHotReloading(
 
     const absolutePath = path.resolve(absoluteEmailsDir, relPath)
 
-    await updateDependencyGraph(event, absolutePath)
+    // updateDependencyGraph returns pre-removal dependents for 'unlink' events
+    const preRemovalDependents = await updateDependencyGraph(event, absolutePath)
 
     // Update external file watchers
     const newExternalFiles = getFilesOutsideEmailsDir()
@@ -95,8 +96,10 @@ export async function setupHotReloading(
 
     changes.push({ event, filename: relPath })
 
-    // Also notify dependents
-    for (const depPath of resolveDependentsOf(absolutePath)) {
+    // Also notify dependents; for 'unlink', use pre-removal dependents since the
+    // node has already been removed from the graph by this point.
+    const dependents = event === 'unlink' ? preRemovalDependents : resolveDependentsOf(absolutePath)
+    for (const depPath of dependents) {
       changes.push({
         event: 'change',
         filename: path.relative(absoluteEmailsDir, depPath),

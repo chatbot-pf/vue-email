@@ -85,7 +85,7 @@ onMounted(() => {
 })
 
 watch(
-  () => props.html,
+  [() => props.html, () => props.plainText],
   () => runCheck(),
 )
 

@@ -75,7 +75,10 @@ async function checkImages(
     if (!rawSource)
       continue
 
-    const source = rawSource.startsWith('/') ? `${base}${rawSource}` : rawSource
+    // Resolve relative and root-relative paths against base
+    const source = (rawSource.startsWith('/') || !rawSource.includes('://')) && base
+      ? new URL(rawSource, base).href
+      : rawSource
     const [line, column] = getLineAndColumn(image.range[0], html)
     const result: ImageCheckingResult = {
       source: rawSource,
@@ -139,7 +142,7 @@ async function checkImages(
   return results
 }
 
-async function checkLinks(html: string): Promise<LinkCheckingResult[]> {
+async function checkLinks(html: string, base: string): Promise<LinkCheckingResult[]> {
   const ast = parse(html)
   const results: LinkCheckingResult[] = []
 
@@ -159,7 +162,7 @@ async function checkLinks(html: string): Promise<LinkCheckingResult[]> {
     }
 
     try {
-      const url = new URL(link)
+      const url = new URL(link, base || undefined)
       result.checks.push({ passed: true, type: 'syntax' })
 
       if (link.startsWith('http://')) {
@@ -205,7 +208,7 @@ export default defineEventHandler(async (event) => {
 
   const [imageResults, linkResults] = await Promise.all([
     checkImages(body.html, base),
-    checkLinks(body.html),
+    checkLinks(body.html, base),
   ])
 
   const rows: LintingRow[] = []

@@ -24,26 +24,25 @@ async function isFileAnEmail(fullPath: string): Promise<boolean> {
     return false
   }
 
-  const stat = await fileHandle.stat()
-  if (stat.isDirectory()) {
-    await fileHandle.close()
-    return false
+  try {
+    const stat = await fileHandle.stat()
+    if (stat.isDirectory())
+      return false
+
+    const { ext } = path.parse(fullPath)
+    if (!SUPPORTED_EXTENSIONS.includes(ext))
+      return false
+
+    const fileContents = await fileHandle.readFile('utf8')
+    return (
+      RE_ES6_DEFAULT_EXPORT.test(fileContents)
+      || RE_COMMONJS_EXPORT.test(fileContents)
+      || RE_NAMED_DEFAULT_EXPORT.test(fileContents)
+    )
   }
-
-  const { ext } = path.parse(fullPath)
-  if (!SUPPORTED_EXTENSIONS.includes(ext)) {
+  finally {
     await fileHandle.close()
-    return false
   }
-
-  const fileContents = await fileHandle.readFile('utf8')
-  await fileHandle.close()
-
-  return (
-    RE_ES6_DEFAULT_EXPORT.test(fileContents)
-    || RE_COMMONJS_EXPORT.test(fileContents)
-    || RE_NAMED_DEFAULT_EXPORT.test(fileContents)
-  )
 }
 
 function mergeDirectoriesWithSubDirectories(emailsDirectory: EmailsDirectory): EmailsDirectory {
@@ -66,11 +65,12 @@ export async function getEmailsDirectoryMetadata(absolutePathToEmailsDirectory: 
     withFileTypes: true,
   })
 
-  const isEmailPredicates = await Promise.all(
-    dirents.map(dirent =>
-      isFileAnEmail(path.join(absolutePathToEmailsDirectory, dirent.name)),
-    ),
-  )
+  const isEmailPredicates: boolean[] = []
+  for (const dirent of dirents) {
+    isEmailPredicates.push(
+      await isFileAnEmail(path.join(absolutePathToEmailsDirectory, dirent.name)),
+    )
+  }
 
   const emailFilenames = dirents
     .filter((_, i) => isEmailPredicates[i])

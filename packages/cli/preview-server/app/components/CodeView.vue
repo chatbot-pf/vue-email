@@ -52,6 +52,7 @@ const currentTab = computed(() => tabs.value.find(t => t.key === activeTab.value
 
 const highlightedHtml = ref<string>('')
 const isLoading = ref(false)
+let highlightSeq = 0
 
 async function highlight(content: string, language: string) {
   if (!content) {
@@ -59,20 +60,27 @@ async function highlight(content: string, language: string) {
     return
   }
   isLoading.value = true
+  const seq = ++highlightSeq
   try {
     const result = await codeToHtml(content, {
       lang: language === 'text' ? 'plaintext' : language,
       theme: 'github-dark',
     })
+    // Discard stale results from earlier (now-cancelled) highlight calls
+    if (seq !== highlightSeq)
+      return
     highlightedHtml.value = result
   }
   catch {
+    if (seq !== highlightSeq)
+      return
     // fallback to plain text if language not supported
     const escaped = content.replace(RE_AMP, '&amp;').replace(RE_LT, '&lt;').replace(RE_GT, '&gt;')
     highlightedHtml.value = `<pre><code>${escaped}</code></pre>`
   }
   finally {
-    isLoading.value = false
+    if (seq === highlightSeq)
+      isLoading.value = false
   }
 }
 

@@ -17,7 +17,7 @@
     }
   },
   "bin": {
-    "mail-please": "./dist/index.mjs"
+    "mail-please": "./dist/index.js"
   },
   "files": [
     "dist",

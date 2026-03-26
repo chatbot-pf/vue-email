@@ -59,11 +59,10 @@ async function runCheck() {
 onMounted(() => {
   const cached = loadCache()
   if (cached) {
+    // Show cached results immediately, then refresh in the background
     issues.value = cached
   }
-  else {
-    runCheck()
-  }
+  runCheck()
 })
 
 watch(

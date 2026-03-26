@@ -39,7 +39,7 @@ provide('toggleSidebar', toggleSidebar)
       <div class="flex w-full h-[calc(100dvh-3.5rem)] lg:h-dvh">
         <!-- Sidebar -->
         <aside
-          class="fixed top-14 left-0 z-50 h-full w-full max-w-xs bg-black border-r border-slate-6 overflow-hidden lg:static lg:top-auto lg:z-auto lg:max-w-none lg:w-64 lg:translate-x-0 transition-transform duration-200 ease-in-out" :class="[
+          class="fixed top-14 left-0 z-50 h-[calc(100dvh-3.5rem)] w-full max-w-xs bg-black border-r border-slate-6 overflow-hidden lg:static lg:top-auto lg:z-auto lg:max-w-none lg:w-64 lg:h-full lg:translate-x-0 transition-transform duration-200 ease-in-out" :class="[
             sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:w-0',
           ]"
         >

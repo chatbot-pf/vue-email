@@ -62,7 +62,7 @@ function applyCustomHeight(value: number) {
 }
 
 function isPresetActive(preset: Preset): boolean {
-  return props.width === preset.width
+  return props.width === preset.width && props.height === preset.height
 }
 </script>
 

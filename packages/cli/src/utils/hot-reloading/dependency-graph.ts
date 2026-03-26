@@ -119,12 +119,18 @@ function getImports(contents: string): string[] {
   return paths
 }
 
-const RE_VUE_SCRIPT = /<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/i
+const RE_VUE_SCRIPT = /<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/gi
 
-/** Extract the <script> block source from a .vue SFC */
+/** Extract and concatenate all <script> block sources from a .vue SFC */
 function extractVueScript(contents: string): string {
-  const match = RE_VUE_SCRIPT.exec(contents)
-  return match?.[1] ?? ''
+  const blocks: string[] = []
+  RE_VUE_SCRIPT.lastIndex = 0
+  let match: RegExpExecArray | null
+  // eslint-disable-next-line no-cond-assign
+  while ((match = RE_VUE_SCRIPT.exec(contents)) !== null) {
+    blocks.push(match[1] ?? '')
+  }
+  return blocks.join('\n')
 }
 
 async function getFileDependencies(
@@ -172,7 +178,7 @@ async function getFileDependencies(
  */
 export async function createDependencyGraph(directory: string): Promise<readonly [
   DependencyGraph,
-  (event: EventName, filePath: string) => Promise<void>,
+  (event: EventName, filePath: string) => Promise<string[]>,
   { resolveDependentsOf: (pathToModule: string) => string[] },
 ]> {
   const files = await readAllFiles(directory)
@@ -229,7 +235,7 @@ export async function createDependencyGraph(directory: string): Promise<readonly
     await updateNode(filePath)
   }
 
-  async function updateGraph(event: EventName, filePath: string): Promise<void> {
+  async function updateGraph(event: EventName, filePath: string): Promise<string[]> {
     switch (event) {
       case 'add':
       case 'change':
@@ -237,8 +243,12 @@ export async function createDependencyGraph(directory: string): Promise<readonly
           await updateNode(filePath)
         break
       case 'unlink':
-        if (isSupportedModule(filePath))
+        if (isSupportedModule(filePath)) {
+          // Resolve dependents BEFORE removing so the caller can still notify them
+          const dependents = resolveDependentsOf(filePath)
           removeNode(filePath)
+          return dependents
+        }
         break
       case 'addDir': {
         const added = await readAllFiles(filePath)
@@ -255,6 +265,7 @@ export async function createDependencyGraph(directory: string): Promise<readonly
         break
       }
     }
+    return []
   }
 
   function resolveDependentsOf(pathToModule: string): string[] {

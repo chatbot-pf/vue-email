@@ -14,13 +14,20 @@ const slug = computed(() => {
 // --- Query param state ---
 const isDarkMode = computed(() => 'dark' in route.query)
 const activeView = computed(() => (route.query.view as string) ?? 'preview')
-const viewWidth = computed(() => route.query.width ? Number(route.query.width) : 1024)
-const viewHeight = computed(() => route.query.height ? Number(route.query.height) : 600)
+const viewWidth = computed(() => {
+  const v = Number(route.query.width)
+  return Number.isFinite(v) && v > 0 ? Math.round(v) : 1024
+})
+const viewHeight = computed(() => {
+  const v = Number(route.query.height)
+  return Number.isFinite(v) && v > 0 ? Math.round(v) : 600
+})
 
 // --- Render state ---
 const renderResult = ref<RenderResult | RenderErrorResult | null>(null)
 const isLoading = ref(false)
 const loadError = ref<string | null>(null)
+let fetchSeq = 0
 
 const hasError = computed(() => {
   if (!renderResult.value)
@@ -45,19 +52,26 @@ async function fetchRender(invalidateCache = false) {
     return
   isLoading.value = true
   loadError.value = null
+  const seq = ++fetchSeq
   try {
     const result = await $fetch<RenderResult | RenderErrorResult>('/api/render', {
       method: 'POST',
       body: { slug: slug.value, invalidateCache },
     })
+    // Discard stale responses from earlier requests
+    if (seq !== fetchSeq)
+      return
     renderResult.value = result
   }
   catch (err) {
+    if (seq !== fetchSeq)
+      return
     loadError.value = (err as Error).message ?? 'Failed to render email'
     renderResult.value = null
   }
   finally {
-    isLoading.value = false
+    if (seq === fetchSeq)
+      isLoading.value = false
   }
 }
 

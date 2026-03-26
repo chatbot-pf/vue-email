@@ -62,8 +62,11 @@ export async function exportTemplates(
       })
 
       const ext = options.plainText ? '.txt' : '.html'
-      const baseName = path.basename(templatePath, path.extname(templatePath))
-      const outPath = path.join(outputDir, `${baseName}${ext}`)
+      // Preserve subdirectory structure to avoid filename collisions
+      const relPath = path.relative(emailsDir, templatePath)
+      const relWithoutExt = relPath.replace(path.extname(relPath), '')
+      const outPath = path.join(outputDir, `${relWithoutExt}${ext}`)
+      fs.mkdirSync(path.dirname(outPath), { recursive: true })
 
       fs.writeFileSync(outPath, rendered, 'utf8')
     }

@@ -71,7 +71,7 @@ export async function build(args: BuildArgs): Promise<void> {
   }
   catch (err) {
     spinner.fail(`Build failed: ${err}`)
-    process.exit(1)
+    process.exitCode = 1
   }
   finally {
     await nuxt.close()

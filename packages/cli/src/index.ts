@@ -40,9 +40,14 @@ async function main(): Promise<void> {
     .option('-d, --dir <path>', 'Path to emails directory', './emails')
     .option('-p, --port <number>', 'Port to run the preview server on', '3000')
     .action(async (options: { dir: string, port: string }) => {
+      const port = Number(options.port)
+      if (!Number.isInteger(port) || port < 1 || port > 65535) {
+        console.error(`Invalid port: "${options.port}". Must be an integer between 1 and 65535.`)
+        process.exit(1)
+      }
       await dev({
         emailsDir: path.resolve(options.dir),
-        port: Number(options.port),
+        port,
       })
     })
 

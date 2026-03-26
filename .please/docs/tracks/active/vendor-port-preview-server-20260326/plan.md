@@ -184,3 +184,33 @@ This approach is simpler (no VM sandboxing), faster (Vite's HMR is optimized), a
 - Decision: Nuxt 4 + Nuxt UI 4 for preview server UI
   Rationale: User preference. Nuxt 4 is the latest Vue meta-framework. Nuxt UI 4 provides accessible components with minimal configuration.
   Date/Author: 2026-03-26 / Minsu Lee
+
+## Outcomes & Retrospective
+
+### What Was Shipped
+
+- Complete `@mail-please/cli` package with 5 CLI commands (dev, build, start, export, resend)
+- Nuxt 4 + Nuxt UI 4 preview server with template sidebar, iframe preview, code view, responsive controls
+- Vite SSR-based template bundling supporting both .vue SFC and .tsx formats
+- Socket.io hot reload with Babel-based dependency graph tracking
+- Toolbar with email linter, spam check, compatibility analyzer, Resend integration
+- 441 tests across 51 test files
+
+### What Went Well
+
+- Parallel team implementation (3 agents) completed 25 tasks efficiently
+- Vite SSR approach eliminated the need for complex VM sandboxing (simpler than React Email's esbuild+VM)
+- Nuxt UI 4's USidebar component provided responsive sidebar out of the box
+- Existing render() utility from @mail-please/vue-email was reusable without modification
+
+### What Could Improve
+
+- build/start output directory mismatch was caught by code review — agents working in parallel created inconsistent defaults
+- Several command functions (dev, build) lack integration-level test coverage — only config helpers are tested
+- resend.ts has zero test coverage
+
+### Tech Debt Created
+
+- Command-layer test coverage gaps (dev, build, resend functions need integration tests)
+- Dark mode color inversion math is inlined in EmailFrame.vue — could be extracted to a utility
+- Spam check relies on external API — needs fallback or offline mode

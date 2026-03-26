@@ -1,0 +1,35 @@
+packages/cli/preview-server/server/api/templates.get.ts
+  887659fc0861bf3f 1-24
+packages/cli/preview-server/app/components/SidebarFileLink.vue
+  887659fc0861bf3f 1-24
+packages/cli/preview-server/app/components/Sidebar.vue
+  887659fc0861bf3f 1-42
+packages/cli/src/utils/bundling.ts
+  887659fc0861bf3f 1-67
+packages/cli/preview-server/app/components/SidebarDirectory.vue
+  887659fc0861bf3f 1-103
+packages/cli/preview-server/app/app.vue
+  887659fc0861bf3f 2,5-9,51-52
+packages/cli/src/utils/bundling.spec.ts
+  887659fc0861bf3f 1-65
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.19",
+  "base_commit_sha": "81a4ef2d058a92d8db997320fe05e2171e838088",
+  "prompts": {
+    "887659fc0861bf3f": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "927892d6-006f-4592-9f64-ef5c3b3a9cce",
+        "model": "claude-opus-4-6"
+      },
+      "human_author": "Minsu Lee <amond@amond.net>",
+      "messages": [],
+      "total_additions": 733,
+      "total_deletions": 16,
+      "accepted_lines": 720,
+      "overriden_lines": 0
+    }
+  }
+}

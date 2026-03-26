@@ -2,6 +2,7 @@ import type { Component } from 'vue'
 import type { EmailsDirectory } from '../utils/discovery'
 import fs from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import { render } from '@mail-please/vue-email'
 import { h } from 'vue'
 import { createTemplateBundler } from '../utils/bundling'
@@ -35,8 +36,10 @@ export async function exportTemplates(
   options: ExportOptions,
 ): Promise<void> {
   const metadata = await getEmailsDirectoryMetadata(emailsDir, /* keepFileExtensions */ true)
-  if (!metadata)
-    return
+  if (!metadata) {
+    console.error(`No email templates found in ${emailsDir}. Does the directory exist?`)
+    process.exit(1)
+  }
 
   // Clean output directory
   if (fs.existsSync(outputDir))

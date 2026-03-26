@@ -100,6 +100,7 @@ export default defineEventHandler(async (event): Promise<RenderResult | RenderEr
   }
   catch (err) {
     const error = err as Error
+    setResponseStatus(event, 500)
     return {
       error: {
         name: error.name,

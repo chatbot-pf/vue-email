@@ -25,9 +25,15 @@ function writeFile(relPath: string, content: string) {
 }
 
 describe('exportTemplates', () => {
-  it('returns early if emailsDir does not exist', async () => {
-    const result = await exportTemplates('/nonexistent/path', outDir, {})
-    expect(result).toBeUndefined()
+  it('exits with error if emailsDir does not exist', async () => {
+    const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => {
+      throw new Error('process.exit called')
+    })
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    await expect(exportTemplates('/nonexistent/path', outDir, {})).rejects.toThrow('process.exit called')
+    expect(exitSpy).toHaveBeenCalledWith(1)
+    expect(consoleSpy).toHaveBeenCalled()
     expect(fs.existsSync(outDir)).toBe(false)
   })
 

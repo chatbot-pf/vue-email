@@ -8,6 +8,13 @@ export default defineEventHandler(async (event) => {
     html: string
   }>(event)
 
+  if (!body?.to || !body?.subject || !body?.html) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Missing required fields: to, subject, html',
+    })
+  }
+
   const apiKey = conf.get('resendApiKey')
   if (!apiKey) {
     throw createError({

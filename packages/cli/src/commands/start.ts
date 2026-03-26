@@ -3,11 +3,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
 
-const OUTPUT_DIR = '.mail-please'
+const OUTPUT_DIR = '.output'
 
 /**
  * Serve the pre-built preview server.
- * Expects the output from `mail-please build` at `.mail-please/`.
+ * Expects the output from `mail-please build` at `.output/`.
  */
 export async function start(): Promise<void> {
   const builtPath = path.resolve(process.cwd(), OUTPUT_DIR)

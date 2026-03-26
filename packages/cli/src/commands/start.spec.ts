@@ -21,7 +21,7 @@ describe('start command', () => {
     })
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
-    // Change cwd to tmpDir so it looks for .mail-please in a clean directory
+    // Change cwd to tmpDir so it looks for .output in a clean directory
     const origCwd = process.cwd()
     process.chdir(tmpDir)
 
@@ -39,7 +39,7 @@ describe('start command', () => {
 
   it('exits with error when server entry file does not exist', async () => {
     // Create the output dir but not the server entry
-    fs.mkdirSync(path.join(tmpDir, '.mail-please'), { recursive: true })
+    fs.mkdirSync(path.join(tmpDir, '.output'), { recursive: true })
 
     const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => {
       throw new Error('process.exit called')

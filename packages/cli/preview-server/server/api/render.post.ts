@@ -60,15 +60,31 @@ export default defineEventHandler(async (event): Promise<RenderResult | RenderEr
     ...extensions.map(ext => path.join(emailsDir, `${slugWithoutExt}${ext}`)),
   ]
 
+  // Resolve emailsDir to real path once for symlink-safe containment checks
+  let realEmailsDir: string
+  try {
+    realEmailsDir = fs.realpathSync(emailsDir)
+  }
+  catch {
+    realEmailsDir = emailsDir
+  }
+
   for (const candidate of candidates) {
-    // Guard against path traversal: candidate must stay within emailsDir
-    const rel = path.relative(emailsDir, candidate)
+    if (!fs.existsSync(candidate))
+      continue
+    // Resolve symlinks before checking containment to prevent traversal via symlinks
+    let realCandidate: string
+    try {
+      realCandidate = fs.realpathSync(candidate)
+    }
+    catch {
+      continue
+    }
+    const rel = path.relative(realEmailsDir, realCandidate)
     if (rel.startsWith('..') || path.isAbsolute(rel))
       continue
-    if (fs.existsSync(candidate)) {
-      absolutePath = candidate
-      break
-    }
+    absolutePath = candidate
+    break
   }
 
   if (!absolutePath) {

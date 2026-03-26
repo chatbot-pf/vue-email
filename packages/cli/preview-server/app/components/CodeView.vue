@@ -55,12 +55,14 @@ const isLoading = ref(false)
 let highlightSeq = 0
 
 async function highlight(content: string, language: string) {
+  // Always increment seq so in-flight results from previous calls are discarded
+  const seq = ++highlightSeq
   if (!content) {
     highlightedHtml.value = ''
+    isLoading.value = false
     return
   }
   isLoading.value = true
-  const seq = ++highlightSeq
   try {
     const result = await codeToHtml(content, {
       lang: language === 'text' ? 'plaintext' : language,

@@ -65,12 +65,11 @@ export async function getEmailsDirectoryMetadata(absolutePathToEmailsDirectory: 
     withFileTypes: true,
   })
 
-  const isEmailPredicates: boolean[] = []
-  for (const dirent of dirents) {
-    isEmailPredicates.push(
-      await isFileAnEmail(path.join(absolutePathToEmailsDirectory, dirent.name)),
-    )
-  }
+  const isEmailPredicates = await Promise.all(
+    dirents.map(dirent =>
+      isFileAnEmail(path.join(absolutePathToEmailsDirectory, dirent.name)),
+    ),
+  )
 
   const emailFilenames = dirents
     .filter((_, i) => isEmailPredicates[i])

@@ -76,9 +76,15 @@ async function checkImages(
       continue
 
     // Resolve relative and root-relative paths against base
-    const source = (rawSource.startsWith('/') || !rawSource.includes('://')) && base
-      ? new URL(rawSource, base).href
-      : rawSource
+    let source = rawSource
+    if ((rawSource.startsWith('/') || !rawSource.includes('://')) && base) {
+      try {
+        source = new URL(rawSource, base).href
+      }
+      catch {
+        source = rawSource
+      }
+    }
     const [line, column] = getLineAndColumn(image.range[0], html)
     const result: ImageCheckingResult = {
       source: rawSource,

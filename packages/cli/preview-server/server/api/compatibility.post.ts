@@ -82,7 +82,7 @@ function extractHtmlElements(html: string): Set<string> {
 
 const RE_STYLE_ATTR = /style="([^"]*)"/gi
 const RE_STYLE_TAG = /<style(?:\s[^>]*)?>([\s\S]*?)<\/style>/gi
-const RE_CSS_RULE_BODY = /\{([^}]*)\}/g
+const RE_CSS_RULE_BODY = /\{([^{}]*)\}/g
 const RE_HTML_TITLE_TAG = /<([^>]*)> element/
 const RE_CSS_PROP_TITLE = /^([a-z-]+)/i
 const RE_KEYWORD_SPLIT = /\s*,\s*/

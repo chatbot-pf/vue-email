@@ -37,7 +37,8 @@ export async function start(): Promise<void> {
 
   child.on('exit', (code, signal) => {
     if (signal) {
-      // Re-raise the signal so the parent process exits with the correct signal
+      // Remove listeners before re-raising to prevent a signal-handling loop
+      process.removeAllListeners(signal)
       process.kill(process.pid, signal)
     }
     else {

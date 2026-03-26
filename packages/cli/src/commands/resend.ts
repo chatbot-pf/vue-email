@@ -1,5 +1,4 @@
-import { createHash } from 'node:crypto'
-import { hostname, userInfo } from 'node:os'
+import { randomBytes } from 'node:crypto'
 import * as nodeUtil from 'node:util'
 import Conf from 'conf'
 import prompts from 'prompts'
@@ -9,22 +8,24 @@ const styleText: StyleTextFunction = (nodeUtil as any).styleText
   ? (nodeUtil as any).styleText
   : (_: string, text: string) => text
 
-// Derive an encryption key from machine-specific attributes so the stored
-// API key is not decryptable with a static key embedded in source.
-function deriveEncryptionKey(): string {
-  try {
-    const seed = `${hostname()}-${userInfo().username}-mail-please`
-    return createHash('sha256').update(seed).digest('hex')
-  }
-  catch {
-    // Fallback: use a constant that is at least not identical to the repo source
-    return createHash('sha256').update('mail-please-fallback').digest('hex')
-  }
+// Use a separate unencrypted store just to hold the encryption key so it is
+// stable across hostname/username changes but is still not embedded in source.
+const keyStore = new Conf<{ encryptionKey?: string }>({
+  projectName: 'mail-please-keystore',
+})
+
+function getOrCreateEncryptionKey(): string {
+  const existing = keyStore.get('encryptionKey')
+  if (typeof existing === 'string' && existing.length > 0)
+    return existing
+  const key = randomBytes(32).toString('hex')
+  keyStore.set('encryptionKey', key)
+  return key
 }
 
 const conf = new Conf<{ resendApiKey?: string }>({
   projectName: 'mail-please',
-  encryptionKey: deriveEncryptionKey(),
+  encryptionKey: getOrCreateEncryptionKey(),
 })
 
 export { conf }

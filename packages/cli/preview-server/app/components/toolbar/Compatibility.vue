@@ -34,10 +34,11 @@ function saveCache(data: CompatibilityIssue[]) {
   catch {}
 }
 
-async function runCheck() {
+async function runCheck(silent = false) {
   if (loading.value)
     return
-  loading.value = true
+  if (!silent)
+    loading.value = true
 
   try {
     const result = await $fetch<CompatibilityIssue[]>('/api/compatibility', {
@@ -59,10 +60,13 @@ async function runCheck() {
 onMounted(() => {
   const cached = loadCache()
   if (cached) {
-    // Show cached results immediately, then refresh in the background
+    // Show cached results immediately, then refresh silently in the background
     issues.value = cached
+    runCheck(true)
   }
-  runCheck()
+  else {
+    runCheck()
+  }
 })
 
 watch(

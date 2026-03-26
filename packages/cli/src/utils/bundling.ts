@@ -1,8 +1,9 @@
+import type { ViteDevServer } from 'vite'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { createServer, type ViteDevServer } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { createServer } from 'vite'
 
 // Resolve deps from this package's own node_modules so user projects don't
 // need to have vite/vue installed themselves.

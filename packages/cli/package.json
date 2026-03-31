@@ -37,7 +37,7 @@
     "@vitejs/plugin-vue": "^6.0.5",
     "@vitejs/plugin-vue-jsx": "^5.1.5",
     "chokidar": "^4.0.3",
-    "commander": "^13.1.0",
+    "commander": "^14.0.3",
     "conf": "^15.0.2",
     "debounce": "^2.0.0",
     "esbuild": "^0.25.0",

@@ -39,7 +39,7 @@
     "@vue/server-renderer": "^3.5.30",
     "css-tree": "^3.2.1",
     "html-to-text": "^9.0.5",
-    "marked": "^17.0.5",
+    "marked": "^18.0.2",
     "prettier": "^3.8.1",
     "prismjs": "^1.30.0",
     "tailwindcss": "^4.2.2"

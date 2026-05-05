@@ -38,7 +38,7 @@
   "dependencies": {
     "@vue/server-renderer": "^3.5.30",
     "css-tree": "^3.2.1",
-    "html-to-text": "^9.0.5",
+    "html-to-text": "^10.0.0",
     "marked": "^17.0.5",
     "prettier": "^3.8.1",
     "prismjs": "^1.30.0",

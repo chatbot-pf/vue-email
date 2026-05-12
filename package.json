@@ -36,7 +36,7 @@
   "dependencies": {},
   "devDependencies": {
     "@antfu/eslint-config": "^7.7.3",
-    "@commitlint/cli": "^20.1.0",
+    "@commitlint/cli": "^21.0.1",
     "@commitlint/config-conventional": "^20.0.0",
     "@vitejs/plugin-vue-jsx": "^5.1.5",
     "@vitest/coverage-v8": "^4.1.1",
